@@ -1,0 +1,97 @@
+(ExpressProject "ANDGATE"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\library2.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\ir-board.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (Netlist_TAB "8")
+    (OTHER_Part_Value "{Value}")
+    (OTHER_Netlist_File "IRF1.asc")
+    (OTHER_Netlist_File2 "IR-BOARD.CMP")
+    (OTHER_View_Output "FALSE")
+    (OTHER_View_Output2 "FALSE")
+    (OTHER_Formatter "orpads2k.dll")
+    (OTHER_PCB_Footprint "{PCB Footprint}")
+    (OTHER_Switch0 "FALSE")
+    (OTHER_Switch1 "FALSE")
+    (OTHER_Switch2 "FALSE")
+    (OTHER_Switch3 "FALSE")
+    (OTHER_Switch4 "FALSE")
+    (OTHER_Switch5 "FALSE")
+    (OTHER_Switch6 "FALSE"))
+  (Folder "Outputs"
+    (File ".\ace.net"
+      (Type "Report"))
+    (File ".\irf.ace"
+      (Type "Report"))
+    (File ".\irf.asc"
+      (Type "Report"))
+    (File ".\irf1.asc"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (CON5
+      (FullPartName "CON5.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.3\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (CAP
+      (FullPartName "CAP.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.3\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (CON10C
+      (FullPartName "CON10C.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.3\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    ("CONN FB 8-R"
+      (FullPartName "CONN FB 8-R.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.3\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (CON8B
+      (FullPartName "CON8B.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.3\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (TSOP17xx
+      (FullPartName "TSOP17xx.Normal")
+      (LibraryName "C:\USERS\SIMPLE\DOCUMENTS\ORCAD\IR-BOARD\LIBRARY2.OLB")
+      (DeviceIndex "0"))
+    (CON8AP
+      (FullPartName "CON8AP.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.3\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (LED
+      (FullPartName "LED.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.3\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\ir-board.dsn")
+      (Path "Design Resources" ".\ir-board.dsn" "SCHEMATIC1")
+      (Path "Design Resources" "Library")
+      (Path "Outputs")
+      (Select "Design Resources" ".\ir-board.dsn" "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 0 200 0 356"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -30 25 992 25 519")
+        (Scroll "-97 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\SIMPLE\DOCUMENTS\SONNONET\DATASHEET_MANUALS\HW_CIRCUIT\IR-BOARD\IR-BOARD.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "Simple")
+  (ISPCBBASICLICENSE "false"))

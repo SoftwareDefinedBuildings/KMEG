@@ -1,0 +1,17 @@
+Copyright (c) 2013 wonsik <wonsik.ko@gmail.com>, TJ <windarin@gmail.com>, ipmstyle <ipmstyle@gmai.com>
+contact by 
+
+require package :
+	python 2.7 or python 2.x
+	pip
+	pyserial
+
+INSTALL PACKAGE  (Ubuntu or Debian)
+	apt-get install python-pip
+	pip install pyserial
+	pip install beautifulhue
+
+INSTALL PACKAGE  (Ubuntu or Debian)
+	yum install python-pip
+	pip install pyserial
+	pip install beautifulhue

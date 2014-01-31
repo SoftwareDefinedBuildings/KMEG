@@ -1,0 +1,14 @@
+#!/usr/bin/python
+# -*- python -*-
+
+import sys
+import ACmeControl
+
+PREFIX = "2001:470:8172:49::"
+
+if __name__ == '__main__':
+   nodeids = [int(x, 0) for x in sys.argv[1:]]
+   for id in nodeids:
+      acme = ACmeControl.ACme('%s%x' % (PREFIX, id))
+      ident = acme.getIdent()
+      print ident

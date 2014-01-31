@@ -1,0 +1,5 @@
+enum {
+	TRIGER = 0x31,
+	DISTENCE = 0x32,
+	TIME =0x33
+};

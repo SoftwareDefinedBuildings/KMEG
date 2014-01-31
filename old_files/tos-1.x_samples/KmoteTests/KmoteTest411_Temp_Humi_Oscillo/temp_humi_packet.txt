@@ -1,0 +1,32 @@
+
+0x1A00 -> 00 1A -> temp * 100, real temp should be divided by 100
+0x3200 -> 00 32 -> humidity
+
+CH 2 -> means Temperature and Humidity packet
+
+====================================================================================
+
+time info will be provided
+7e 42  a  1  8 83 ff ff ff ff  a  1  a  0 82  1  2  0 1a  0 32  0 6d 5b 7e time  = 1 
+
+7e 42  a  1  8 85 ff ff ff ff  a  1  a  0 84  1  2  0 1a  0 32  0 ea b9 7e time  = 2 
+
+7e 42  a  1  8 86 ff ff ff ff  a  1  a  0 85  1  2  0 1a  0 32  0 1f cf 7e time  = 2 
+
+7e 42  a  1  8 87 ff ff ff ff  a  1  a  0 86  1  2  0 1a  0 32  0 88 17 7e time  = 3 
+
+7e 42  a  1  8 88 ff ff ff ff  a  1  a  0 87  1  2  0 1a  0 32  0 e5 a5 7e time  = 3 
+
+7e 42  a  1  8 89 ff ff ff ff  a  1  a  0 88  1  2  0 1a  0 32  0 c5 6c 7e time  = 4 
+
+7e 42  a  1  8 8a ff ff ff ff  a  1  a  0 89  1  2  0 1a  0 32  0 30 1a 7e time  = 4 
+
+7e 42  a  1  8 8b ff ff ff ff  a  1  a  0 8a  1  2  0 1a  0 32  0 a7 c2 7e time  = 5 
+
+7e 42  a  1  8 8c ff ff ff ff  a  1  a  0 8b  1  2  0 1a  0 32  0 da f7 7e time  = 5 
+
+7e 42  a  1  8 8d ff ff ff ff  a  1  a  0 8c  1  2  0 1a  0 32  0 20 20 7e time  = 5 
+
+7e 42  a  1  8 8e ff ff ff ff  a  1  a  0 8d  1  2  0 1a  0 32  0 d5 56 7e time  = 6 
+
+7e 42  a  1  8 8f ff ff ff ff  a  1  a  

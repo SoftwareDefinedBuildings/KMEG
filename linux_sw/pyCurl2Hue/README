@@ -1,0 +1,34 @@
+pyCurl2hue setup guide
+
+	yum install python-pip (for fedora)
+	apt-get install python-pip (for ubuntu)
+
+	pip install beautifulhue
+	yum install python-pycurl (for fedora)
+	apt-get install python-pycurl (for ubuntu)
+
+1) 'Hue' and Raspberry Pi' must be in the same network.
+2) Please check IP in every device.
+3) Register the username in accordance with the 'Hue user guide'
+	default user-name : "hueandtinyos"
+4) Edit 'pyCurl.py' code the information in 8 line.
+5) Run the 'pyCurl.py'
+
+---------------------------------------------------------
+THL lux control
+- max illumation are 1000 lux
+- Light off, if illumation are over 1000 lux
+- The brightness is adjusted to 255 steps, at less 1000 lux
+---------------------------------------------------------
+Dimming control according to the level of CO2
+- 1 sec period cycle dimming (255->50)
+- 5 times dimming cycle
+
+---------------------------------------------------------
+How to run 'pyCurl2Hue'
+1) whole bulb control
+ : Whole bulb control with '6202' EXT_CO2 sensor
+	>> python pyCurl.py co2 6202
+2) specific bulb control
+ : Number 1 bulb control with '6202' EXT_CO2 sensor
+	>> python pyCurl.py co2 6202:1

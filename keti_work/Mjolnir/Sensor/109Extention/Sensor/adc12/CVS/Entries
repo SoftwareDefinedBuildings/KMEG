@@ -1,0 +1,27 @@
+/AdcP.nc/1.8/Fri Jun 27 18:05:23 2008//
+/AdcReadClientC.nc/1.4/Tue Dec 12 18:23:06 2006//
+/AdcReadNowClientC.nc/1.4/Tue Dec 12 18:23:07 2006//
+/AdcReadStreamClientC.nc/1.5/Mon Apr  7 09:41:55 2008//
+/AdcStreamP.nc/1.6/Mon Nov 10 14:56:12 2008//
+/HplAdc12.nc/1.5/Thu May 22 17:45:00 2008//
+/HplAdc12P.nc/1.9/Sat Oct 17 11:48:33 2009//
+/Msp430Adc12.h/1.5/Mon Jun 25 15:47:14 2007//
+/Msp430Adc12ClientAutoDMAC.nc/1.7/Wed Jun 11 00:42:13 2008//
+/Msp430Adc12ClientAutoDMA_RVGC.nc/1.8/Wed Jun 11 00:42:13 2008//
+/Msp430Adc12ClientAutoRVGC.nc/1.8/Wed Jun 11 00:42:13 2008//
+/Msp430Adc12ClientC.nc/1.6/Wed Jun 11 00:42:13 2008//
+/Msp430Adc12ConfAlertC.nc/1.2/Wed Jun 11 00:42:13 2008//
+/Msp430Adc12DMAP.nc/1.5/Mon Jun 23 20:25:15 2008//
+/Msp430Adc12DMAWireC.nc/1.1/Mon Apr  7 09:41:55 2008//
+/Msp430Adc12ImplP.nc/1.14/Mon Nov 10 14:56:12 2008//
+/Msp430Adc12MultiChannel.nc/1.4/Thu Dec  3 17:36:13 2009//
+/Msp430Adc12Overflow.nc/1.2/Tue Dec 12 18:23:07 2006//
+/Msp430Adc12P.nc/1.7/Thu May 15 23:57:13 2008//
+/Msp430Adc12SingleChannel.nc/1.6/Fri Jun 27 18:05:23 2008//
+/Msp430RefVoltArbiterImplP.nc/1.5/Thu Apr  5 13:42:36 2007//
+/Msp430RefVoltArbiterP.nc/1.4/Tue Dec 12 18:23:07 2006//
+/Msp430RefVoltGenerator.h/1.5/Wed Mar 14 18:14:06 2007//
+/Msp430RefVoltGeneratorP.nc/1.6/Thu Mar 11 09:42:25 2010//
+/README.txt/1.7/Mon Apr  7 09:41:55 2008//
+/WireAdcStreamP.nc/1.1/Mon Apr  7 09:41:55 2008//
+D

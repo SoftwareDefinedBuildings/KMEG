@@ -1,0 +1,8 @@
+##### GENERAL #####
+PFLAGS += -DCC2420_DEF_CHANNEL=11
+
+##### ETYPE #####
+PFLAGS += -DCC2420_DEF_CHANNEL=12
+
+
+

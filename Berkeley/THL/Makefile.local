@@ -1,0 +1,8 @@
+# -*- makefile -*-
+
+ACmeShellConstants.py: ACmeShell.h
+	ncg -D_POSIX_C_SOURCE -I$(TOSROOT)/tos/lib/net/blip/shell python -python-classname=ACmeShellConstants ./ACmeShell.h BSHELL_READ_CONFIG BSHELL_WRITE_CONFIG BSHELL_RESET BSHELL_READ ACME_NONE ACME_DEST ACME_PERIOD ACME_CAL_REAL ACME_CAL_APPARENT ACME_CAL_REAL_PIECE ACME_CAL_APP_PIECE ACME_RADIO NCALSEGS > ACmeShellConstants.py
+
+msg:	
+	mig -D_POSIX_C_SOURCE -DMIG -I$(TOSROOT)/tos/lib/net/blip -I$(TOSROOT)/tos/chips/cc2420 -I$(TOSROOT)/support/sdk/c/blip/lib6lowpan python -python-classname=CO2Report CO2Report.h co2_report -o util/CO2Report.py
+

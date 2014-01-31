@@ -1,0 +1,21 @@
+
++ Kmote Electric Power (KEP) software is available only with below agreement.
+
+1. use with Kmote-Power sensor board.
+2. use with Kmote manufactured by tinyosmall (www.tinyosmall.co.kr)
+3. Kmote-Power supports under 10A / 220V
+
++ Sensing Scale
+
+1. Sensing Data (12 bit)
+   0x000 means no Electric Device is loaded
+   OxFFF means 10A Electric Device is loaded
+   if 3.3A current flowing, might be the value is 0x555 
+   if 6.6A current flowing, might be the value is 0xAAA
+
+written by Wonsik Ko, www.sonnonet.com
+ 
+   
+
+
+

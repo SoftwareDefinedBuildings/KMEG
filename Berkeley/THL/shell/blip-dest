@@ -1,0 +1,15 @@
+#!/usr/bin/python
+# -*- python -*-
+
+import sys
+import ACmeControl
+
+PREFIX = "2001:470:8172:49::"
+DEST = '2001:470:8172::2'
+PORT = 7001
+
+if __name__ == '__main__':
+   nodeids = [int(x, 0) for x in sys.argv[1:]]
+   for id in nodeids:
+      acme = ACmeControl.ACme('%s%x' % (PREFIX, id))
+      acme.setDest(DEST, PORT)

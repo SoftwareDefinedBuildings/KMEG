@@ -1,0 +1,103 @@
+*
+*
+G04 PADS 9.4.1 Build Number: 494907 generated Gerber (RS-274-X) file*
+G04 PC Version=2.1*
+*
+%IN "IRF_rev2.pcb"*%
+*
+%MOMM*%
+*
+%FSLAX35Y35*%
+*
+*
+*
+*
+G04 PC Standard Apertures*
+*
+*
+G04 Thermal Relief Aperture macro.*
+%AMTER*
+1,1,$1,0,0*
+1,0,$1-$2,0,0*
+21,0,$3,$4,0,0,45*
+21,0,$3,$4,0,0,135*
+%
+*
+*
+G04 Annular Aperture macro.*
+%AMANN*
+1,1,$1,0,0*
+1,0,$2,0,0*
+%
+*
+*
+G04 Odd Aperture macro.*
+%AMODD*
+1,1,$1,0,0*
+1,0,$1-0.005,0,0*
+%
+*
+*
+G04 PC Custom Aperture Macros*
+*
+*
+*
+*
+*
+*
+G04 PC Aperture Table*
+*
+%ADD010C,0.0254*%
+%ADD011C,1.524*%
+%ADD012R,1.524X1.524*%
+%ADD013R,0.9X0.6*%
+%ADD016C,0.254*%
+*
+*
+*
+*
+G04 PC Circuitry*
+G04 Layer Name IRF_rev2.pcb - circuitry*
+%LPD*%
+*
+*
+G04 PC Custom Flashes*
+G04 Layer Name IRF_rev2.pcb - flashes*
+%LPD*%
+*
+*
+G04 PC Circuitry*
+G04 Layer Name IRF_rev2.pcb - circuitry*
+%LPD*%
+*
+G54D10*
+G54D11*
+G01X3140000Y2500000D03*
+Y2246000D03*
+X2540000Y2540000D03*
+Y2032000D03*
+Y1778000D03*
+Y1524000D03*
+X4040000Y1520000D03*
+Y1774000D03*
+Y2028000D03*
+Y2282000D03*
+Y2536000D03*
+X3670000Y1780000D03*
+X3416000D03*
+X2908000D03*
+G54D12*
+X2540000Y2286000D03*
+G54D13*
+X2740000Y2455000D03*
+Y2605000D03*
+X3420000Y2005000D03*
+Y2155000D03*
+G54D16*
+X2390000Y1340000D02*
+X4190000D01*
+Y2840000*
+X2390000*
+Y1340000*
+X0Y0D02*
+M02*

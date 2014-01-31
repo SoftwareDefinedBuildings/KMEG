@@ -1,0 +1,8 @@
+lecho Loading shell commands
+#register Lpl.CmdSetLpl  # lpl duty cycle control
+register NWProg.NWProg  # network programming
+register ACmeShell.CmdReadConfig
+register ACmeShell.CmdWriteConfig
+register ACmeShell.CmdReadData
+register ACmeShell.CmdSet
+register UnixTimeCmd.CmdTime

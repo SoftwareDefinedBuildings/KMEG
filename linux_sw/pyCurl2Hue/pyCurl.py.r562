@@ -1,0 +1,78 @@
+import pycurl
+import StringIO, sys, time
+from xml.dom import minidom
+from beautifulhue.api import Bridge
+
+def hueCtl(value):
+	value = float(value)
+	bridge = Bridge(device={'ip':'192.168.0.15'}, user={'name':'sonnonettinyos'})
+	'''
+	resource = {
+	    'which':0,
+	    'data':{
+		'state':{'on':False, 'ct':222}
+	    }
+	}
+	bridge.light.update(resource)
+	'''
+	if( value > 1500 ):
+		hueValue = 0		# red
+	elif( value <= 1500 and value > 800 ):
+		hueValue =25500		# green
+	elif( value <= 800 ):
+		hueValue = 46920 	# blue
+	print value, hueValue
+
+	'''
+	resource = {
+	    'which':0,
+	    'data':{
+		'action':{'on':False}
+	    }
+	}
+	bridge.group.update(resource)
+	time.sleep(1)
+	'''
+	resource = {
+	    'which':0,
+	    'data':{
+		'action':{'on':True, 'hue':hueValue, 'bri':180}
+	    }
+	}
+	bridge.group.update(resource)
+
+def xmlParser(xml):
+	xmlraw = minidom.parseString(xml)
+	xps = xmlraw.getElementsByTagName('data')
+	valueL = xps[0].getElementsByTagName('value')
+	dateL = xps[0].getElementsByTagName('date')
+	value = valueL[0].firstChild.data
+	date = dateL[0].firstChild.data
+	print value, date
+	hueCtl(value)
+	
+
+def getAPI(pkt):
+	url = 'http://kmeg.mooo.com/API/oAPI.php?aak=test12345&nt=%s&nid=%s&nd=recent' % (pkt['type'], pkt['id'])
+	c = pycurl.Curl()
+	c.setopt(pycurl.URL, url)
+	str = StringIO.StringIO()
+	c.setopt(pycurl.WRITEFUNCTION, str.write)
+	c.perform()
+	xml = str.getvalue()
+	try:
+		xmlParser(xml)
+	except:
+		print xml
+
+
+if __name__ == "__main__":
+	pkt = {}
+	if( len(sys.argv) == 3 ):
+		pkt['type'] = sys.argv[1]
+		pkt['id'] = sys.argv[2]
+		while(1):
+			getAPI(pkt)
+			time.sleep(5)
+	elif( len(sys.argv) == 2 ):
+		pass

@@ -1,0 +1,17 @@
+#!/bin/sh
+DATE=`date +%Y%m%d`
+DIR=`pwd | awk -F"/" '{print $NF}'`
+if test -e /share/backup; then
+cp -rf ../$DIR /share/backup/$DIR"_"$DATE
+else
+
+if test -e /share/; then
+mkdir /share/backup/
+cp -rf ../$DIR /share/backup/$DIR"_"$DATE
+else
+mkdir /share/
+mkdir /share/backup/
+cp -rf ../$DIR /share/backup/$DIR"_"$DATE
+
+fi
+fi

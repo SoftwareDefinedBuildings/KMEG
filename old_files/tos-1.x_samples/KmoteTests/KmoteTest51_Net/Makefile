@@ -1,0 +1,8 @@
+PFLAGS= -I%T/lib/MultiHopLQI -DSEND_QUEUE_SIZE=8 -DMHOP_LEDS
+
+PLATFORMS=telos telosa telosb
+
+TINYOS_NP ?= BNP
+COMPONENT=Surge
+include ${MAKERULES}
+
