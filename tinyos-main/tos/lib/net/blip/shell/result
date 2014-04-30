@@ -1,0 +1,459 @@
+../../../../../tos/lib/net/blip/shell/UDPShellC.nc:37:configuration UDPShellC {
+../../../../../tos/lib/net/blip/shell/UDPShellC.nc:43:  components UDPShellP, LedsC;
+../../../../../tos/lib/net/blip/shell/UDPShellC.nc:45:  UDPShellP.UDP -> UdpSocketC;
+../../../../../tos/lib/net/blip/shell/UDPShellC.nc:47:  UDPShellP.Leds -> LedsC;
+../../../../../tos/lib/net/blip/shell/UDPShellC.nc:50:  UDPShellP.ICMPPing -> ICMPPingC.ICMPPing[unique("PING")];
+../../../../../tos/lib/net/blip/shell/UDPShellC.nc:54:  UDPShellP.Uptime -> CounterMilli32C;
+../../../../../tos/lib/net/blip/shell/UDPShellC.nc:58:  UDPShellP.Boot -> MainC;
+../../../../../tos/lib/net/blip/shell/UDPShellC_bu.nc:37:configuration UDPShellC {
+../../../../../tos/lib/net/blip/shell/UDPShellC_bu.nc:43:  components UDPShellP, LedsC;
+../../../../../tos/lib/net/blip/shell/UDPShellC_bu.nc:45:  UDPShellP.UDP -> UdpSocketC;
+../../../../../tos/lib/net/blip/shell/UDPShellC_bu.nc:47:  UDPShellP.Leds -> LedsC;
+../../../../../tos/lib/net/blip/shell/UDPShellC_bu.nc:49:  UDPShellP.ICMPPing -> ICMPPingC.ICMPPing[unique("PING")];
+../../../../../tos/lib/net/blip/shell/UDPShellC_bu.nc:53:  UDPShellP.Uptime -> CounterMilli32C;
+../../../../../tos/lib/net/blip/shell/UDPShellC_bu.nc:57:  UDPShellP.Boot -> MainC;
+../../../../../tos/lib/net/blip/shell/UDPShellP.nc:40:module UDPShellP {
+../../../../../tos/lib/net/blip/shell/ShellCommandC.nc:10:  components new ShellCommandP(cmd_name), UDPShellP;
+../../../../../tos/lib/net/blip/shell/ShellCommandC.nc:12:  ShellCommandP.RegisterShellCommand ->  UDPShellP.RegisterShellCommand[CMD_ID];
+../../../../../tos/lib/net/blip/shell/ShellCommandC.nc:13:  ShellCommand = UDPShellP.ShellCommand[CMD_ID];
+../../../../../tos/lib/net/blip/shell/UDPShellP_bu.nc:40:module UDPShellP {
+../../../../../tos/lib/net/blip/doc/README-NWPROG:69:example code in UDPShellP component is the best way of finding out
+../../../../../tos/lib/net/blip/doc/README-SHELL:2: @title UDPShell Documentation
+../../../../../tos/lib/net/blip/doc/README-SHELL:7:UDPShell is a simple text-based command processor which comes with the
+../../../../../tos/lib/net/blip/doc/README-SHELL:18:To include just the basic shell, include the UDPShellC component in
+../../../../../apps/TCPEcho/TCPEchoC.nc:75:  components UDPShellC;
+../../../../../apps/PppRouter/PppRouterC.nc:57:  components UDPShellC;
+../../../../../apps/PppRouter/build/telosb/app.c:6698:static void UDPShellP__Boot__booted(void );
+../../../../../apps/PppRouter/build/telosb/app.c:6700:static void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *src, void *payload, 
+../../../../../apps/PppRouter/build/telosb/app.c:6703:static char *UDPShellP__ShellCommand__getBuffer(
+../../../../../apps/PppRouter/build/telosb/app.c:6704:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:6709:static char *UDPShellP__ShellCommand__default__eval(
+../../../../../apps/PppRouter/build/telosb/app.c:6710:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:6715:static void UDPShellP__ShellCommand__write(
+../../../../../apps/PppRouter/build/telosb/app.c:6716:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:6721:static char *UDPShellP__RegisterShellCommand__default__getCommandName(
+../../../../../apps/PppRouter/build/telosb/app.c:6722:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:15555:static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, 
+../../../../../apps/PppRouter/build/telosb/app.c:15558:static error_t UDPShellP__UDP__bind(uint16_t port);
+../../../../../apps/PppRouter/build/telosb/app.c:15560:static char *UDPShellP__ShellCommand__eval(
+../../../../../apps/PppRouter/build/telosb/app.c:15561:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:15566:static char *UDPShellP__RegisterShellCommand__getCommandName(
+../../../../../apps/PppRouter/build/telosb/app.c:15567:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:15570:struct sockaddr_in6 UDPShellP__session_endpoint;
+../../../../../apps/PppRouter/build/telosb/app.c:15572:uint64_t UDPShellP__uptime;
+../../../../../apps/PppRouter/build/telosb/app.c:15574:enum UDPShellP____nesc_unnamed4469 {
+../../../../../apps/PppRouter/build/telosb/app.c:15575:  UDPShellP__N_EXTERNAL = 1U
+../../../../../apps/PppRouter/build/telosb/app.c:15579:enum UDPShellP____nesc_unnamed4470 {
+../../../../../apps/PppRouter/build/telosb/app.c:15580:  UDPShellP__N_BUILTINS = 5, 
+../../../../../apps/PppRouter/build/telosb/app.c:15582:  UDPShellP__N_ARGS = 10, 
+../../../../../apps/PppRouter/build/telosb/app.c:15583:  UDPShellP__CMD_HELP = 0, 
+../../../../../apps/PppRouter/build/telosb/app.c:15584:  UDPShellP__CMD_ECHO = 1, 
+../../../../../apps/PppRouter/build/telosb/app.c:15585:  UDPShellP__CMD_PING6 = 2, 
+../../../../../apps/PppRouter/build/telosb/app.c:15586:  UDPShellP__CMD_TRACERT6 = 3, 
+../../../../../apps/PppRouter/build/telosb/app.c:15588:  UDPShellP__CMD_NO_CMD = 0xfe, 
+../../../../../apps/PppRouter/build/telosb/app.c:15589:  UDPShellP__CMDNAMSIZ = 10
+../../../../../apps/PppRouter/build/telosb/app.c:15592:struct UDPShellP__cmd_name {
+../../../../../apps/PppRouter/build/telosb/app.c:15594:  char c_name[UDPShellP__CMDNAMSIZ];
+../../../../../apps/PppRouter/build/telosb/app.c:15596:struct UDPShellP__cmd_builtin {
+../../../../../apps/PppRouter/build/telosb/app.c:15600:struct UDPShellP__cmd_name UDPShellP__externals[UDPShellP__N_EXTERNAL];
+../../../../../apps/PppRouter/build/telosb/app.c:15603:static inline void UDPShellP__Boot__booted(void );
+../../../../../apps/PppRouter/build/telosb/app.c:15605:char UDPShellP__reply_buf[MAX_REPLY_LEN];
+../../../../../apps/PppRouter/build/telosb/app.c:15607:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len);
+../../../../../apps/PppRouter/build/telosb/app.c:15613:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len);
+../../../../../apps/PppRouter/build/telosb/app.c:15615:struct UDPShellP__cmd_name;
+../../../../../apps/PppRouter/build/telosb/app.c:15620:struct UDPShellP__cmd_builtin;
+../../../../../apps/PppRouter/build/telosb/app.c:15629:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc);
+../../../../../apps/PppRouter/build/telosb/app.c:15631:static inline int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db);
+../../../../../apps/PppRouter/build/telosb/app.c:15641:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/PppRouter/build/telosb/app.c:15644:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv);
+../../../../../apps/PppRouter/build/telosb/app.c:15648:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id);
+../../../../../apps/PppRouter/build/telosb/app.c:25834:inline static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, uint16_t len){
+../../../../../apps/PppRouter/build/telosb/app.c:25848:# 162 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:25849:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len)
+../../../../../apps/PppRouter/build/telosb/app.c:25852:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, str, len);
+../../../../../apps/PppRouter/build/telosb/app.c:25858:  UDPShellP__ShellCommand__write(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, str, len);
+../../../../../apps/PppRouter/build/telosb/app.c:25908:  __nesc_result = UDPShellP__ShellCommand__getBuffer(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, len);
+../../../../../apps/PppRouter/build/telosb/app.c:29221:# 305 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:29222:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv)
+../../../../../apps/PppRouter/build/telosb/app.c:29229:inline static char *UDPShellP__ShellCommand__eval(uint8_t arg_0x2aef203011e8, int argc, char **argv){
+../../../../../apps/PppRouter/build/telosb/app.c:29245:      __nesc_result = UDPShellP__ShellCommand__default__eval(arg_0x2aef203011e8, argc, argv);
+../../../../../apps/PppRouter/build/telosb/app.c:29257:# 243 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:29258:static inline int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db)
+../../../../../apps/PppRouter/build/telosb/app.c:29274:  return UDPShellP__CMD_NO_CMD;
+../../../../../apps/PppRouter/build/telosb/app.c:29278:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc)
+../../../../../apps/PppRouter/build/telosb/app.c:29285:  while (len > 0 && *argc < UDPShellP__N_ARGS) {
+../../../../../apps/PppRouter/build/telosb/app.c:29316:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/PppRouter/build/telosb/app.c:29320:  char *argv[UDPShellP__N_ARGS];
+../../../../../apps/PppRouter/build/telosb/app.c:29325:  memcpy(&UDPShellP__session_endpoint, from, sizeof(struct sockaddr_in6 ));
+../../../../../apps/PppRouter/build/telosb/app.c:29326:  UDPShellP__init_argv((char *)data, len, argv, &argc);
+../../../../../apps/PppRouter/build/telosb/app.c:29336:      cmd = UDPShellP__lookup_cmd(argv[0], UDPShellP__N_EXTERNAL, UDPShellP__externals);
+../../../../../apps/PppRouter/build/telosb/app.c:29337:      if (cmd != UDPShellP__CMD_NO_CMD) {
+../../../../../apps/PppRouter/build/telosb/app.c:29338:          char *reply = UDPShellP__ShellCommand__eval(cmd, argc, argv);
+../../../../../apps/PppRouter/build/telosb/app.c:29342:            UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, reply, strlen(reply));
+../../../../../apps/PppRouter/build/telosb/app.c:29347:      cmd = snprintf(UDPShellP__reply_buf, MAX_REPLY_LEN, "sdsh: %s: command not found\n", argv[0]);
+../../../../../apps/PppRouter/build/telosb/app.c:29348:      UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, cmd);
+../../../../../apps/PppRouter/build/telosb/app.c:29368:      UDPShellP__UDP__recvfrom(src, payload, len, meta);
+../../../../../apps/PppRouter/build/telosb/app.c:39328:inline static error_t UDPShellP__UDP__bind(uint16_t port){
+../../../../../apps/PppRouter/build/telosb/app.c:39349:# 309 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:39350:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id)
+../../../../../apps/PppRouter/build/telosb/app.c:39357:inline static char *UDPShellP__RegisterShellCommand__getCommandName(uint8_t arg_0x2aef202fbc70){
+../../../../../apps/PppRouter/build/telosb/app.c:39373:      __nesc_result = UDPShellP__RegisterShellCommand__default__getCommandName(arg_0x2aef202fbc70);
+../../../../../apps/PppRouter/build/telosb/app.c:39385:# 93 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:39386:static inline void UDPShellP__Boot__booted(void )
+../../../../../apps/PppRouter/build/telosb/app.c:39395:      UDPShellP__uptime = 0;
+../../../../../apps/PppRouter/build/telosb/app.c:39404:  for (i = 0; i < UDPShellP__N_EXTERNAL; i++) {
+../../../../../apps/PppRouter/build/telosb/app.c:39405:      UDPShellP__externals[i].c_name[UDPShellP__CMDNAMSIZ - 1] = '\0';
+../../../../../apps/PppRouter/build/telosb/app.c:39406:      strncpy(UDPShellP__externals[i].c_name, UDPShellP__RegisterShellCommand__getCommandName(i), UDPShellP__CMDNAMSIZ);
+../../../../../apps/PppRouter/build/telosb/app.c:39407:      UDPShellP__externals[i].c_len = strlen(UDPShellP__externals[i].c_name);
+../../../../../apps/PppRouter/build/telosb/app.c:39409:  UDPShellP__UDP__bind(2000);
+../../../../../apps/PppRouter/build/telosb/app.c:39628:  UDPShellP__Boot__booted();
+../../../../../apps/PppRouter/build/telosb/app.c:44440:# 156 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/PppRouter/build/telosb/app.c:44441:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len)
+../../../../../apps/PppRouter/build/telosb/app.c:44444:  UDPShellP__reply_buf[0] = '\0';
+../../../../../apps/PppRouter/build/telosb/app.c:44447:    return UDPShellP__reply_buf;
+Binary file ../../../../../apps/PppRouter/build/telosb/main.exe matches
+Binary file ../../../../../apps/PppRouter/.PppRouterC.nc.swp matches
+../../../../../apps/CoapPpp/CoapPppC.nc:86:  //components UDPShellC;
+../../../../../apps/UDPEcho/build/telosb/app.c:2872:typedef TMilli UDPShellP__Uptime__precision_tag;
+../../../../../apps/UDPEcho/build/telosb/app.c:2873:typedef uint32_t UDPShellP__Uptime__size_type;
+../../../../../apps/UDPEcho/build/telosb/app.c:5089:static void UDPShellP__Boot__booted(void );
+../../../../../apps/UDPEcho/build/telosb/app.c:5091:static void UDPShellP__Uptime__overflow(void );
+../../../../../apps/UDPEcho/build/telosb/app.c:5093:static void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *src, void *payload, 
+../../../../../apps/UDPEcho/build/telosb/app.c:5096:static char *UDPShellP__ShellCommand__getBuffer(
+../../../../../apps/UDPEcho/build/telosb/app.c:5097:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:5102:static char *UDPShellP__ShellCommand__default__eval(
+../../../../../apps/UDPEcho/build/telosb/app.c:5103:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:5108:static void UDPShellP__ShellCommand__write(
+../../../../../apps/UDPEcho/build/telosb/app.c:5109:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:5114:static char *UDPShellP__RegisterShellCommand__default__getCommandName(
+../../../../../apps/UDPEcho/build/telosb/app.c:5115:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:5118:static void UDPShellP__ICMPPing__pingDone(uint16_t ping_rcv, uint16_t ping_n);
+../../../../../apps/UDPEcho/build/telosb/app.c:5120:static void UDPShellP__ICMPPing__pingReply(struct in6_addr *source, struct icmp_stats *stats);
+../../../../../apps/UDPEcho/build/telosb/app.c:11138:static UDPShellP__Uptime__size_type UDPShellP__Uptime__get(void );
+../../../../../apps/UDPEcho/build/telosb/app.c:11140:static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11143:static error_t UDPShellP__UDP__bind(uint16_t port);
+../../../../../apps/UDPEcho/build/telosb/app.c:11145:static char *UDPShellP__ShellCommand__eval(
+../../../../../apps/UDPEcho/build/telosb/app.c:11146:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:11151:static char *UDPShellP__RegisterShellCommand__getCommandName(
+../../../../../apps/UDPEcho/build/telosb/app.c:11152:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:11155:static error_t UDPShellP__ICMPPing__ping(struct in6_addr *target, uint16_t period, uint16_t n);
+../../../../../apps/UDPEcho/build/telosb/app.c:11156:# 60 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:11157:struct sockaddr_in6 UDPShellP__session_endpoint;
+../../../../../apps/UDPEcho/build/telosb/app.c:11158:uint32_t UDPShellP__boot_time;
+../../../../../apps/UDPEcho/build/telosb/app.c:11159:uint64_t UDPShellP__uptime;
+../../../../../apps/UDPEcho/build/telosb/app.c:11161:enum UDPShellP____nesc_unnamed4406 {
+../../../../../apps/UDPEcho/build/telosb/app.c:11162:  UDPShellP__N_EXTERNAL = 1U
+../../../../../apps/UDPEcho/build/telosb/app.c:11166:enum UDPShellP____nesc_unnamed4407 {
+../../../../../apps/UDPEcho/build/telosb/app.c:11167:  UDPShellP__N_BUILTINS = 5, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11169:  UDPShellP__N_ARGS = 10, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11170:  UDPShellP__CMD_HELP = 0, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11171:  UDPShellP__CMD_ECHO = 1, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11172:  UDPShellP__CMD_PING6 = 2, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11173:  UDPShellP__CMD_TRACERT6 = 3, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11175:  UDPShellP__CMD_NO_CMD = 0xfe, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11176:  UDPShellP__CMDNAMSIZ = 10
+../../../../../apps/UDPEcho/build/telosb/app.c:11179:struct UDPShellP__cmd_name {
+../../../../../apps/UDPEcho/build/telosb/app.c:11181:  char c_name[UDPShellP__CMDNAMSIZ];
+../../../../../apps/UDPEcho/build/telosb/app.c:11183:struct UDPShellP__cmd_builtin {
+../../../../../apps/UDPEcho/build/telosb/app.c:11187:struct UDPShellP__cmd_name UDPShellP__externals[UDPShellP__N_EXTERNAL];
+../../../../../apps/UDPEcho/build/telosb/app.c:11190:static inline void UDPShellP__Boot__booted(void );
+../../../../../apps/UDPEcho/build/telosb/app.c:11192:char UDPShellP__reply_buf[MAX_REPLY_LEN];
+../../../../../apps/UDPEcho/build/telosb/app.c:11193:char *UDPShellP__help_str = "sdsh-0.9\tbuiltins: [help, echo, ping6, uptime, ident]\n";
+../../../../../apps/UDPEcho/build/telosb/app.c:11194:const char *UDPShellP__ping_fmt = " icmp_seq=%i ttl=%i time=%i ms\n";
+../../../../../apps/UDPEcho/build/telosb/app.c:11195:const char *UDPShellP__ping_summary = "%i packets transmitted, %i received\n";
+../../../../../apps/UDPEcho/build/telosb/app.c:11196:char *UDPShellP__ident_string = "\t[app: "
+../../../../../apps/UDPEcho/build/telosb/app.c:11201:static void UDPShellP__action_help(int argc, char **argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:11203:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len);
+../../../../../apps/UDPEcho/build/telosb/app.c:11209:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len);
+../../../../../apps/UDPEcho/build/telosb/app.c:11213:static void UDPShellP__action_echo(int argc, char **argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:11215:static void UDPShellP__action_ping6(int argc, char **argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:11224:static void UDPShellP__action_uptime(int argc, char **argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:11226:static inline void UDPShellP__action_ident(int argc, char **argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:11231:struct UDPShellP__cmd_name UDPShellP__builtins[UDPShellP__N_BUILTINS] = { { 4, "help" }, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11236:struct UDPShellP__cmd_builtin UDPShellP__builtin_actions[UDPShellP__N_BUILTINS] = { { UDPShellP__action_help }, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11237:{ UDPShellP__action_echo }, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11238:{ UDPShellP__action_ping6 }, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11239:{ UDPShellP__action_uptime }, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11240:{ UDPShellP__action_ident } };
+../../../../../apps/UDPEcho/build/telosb/app.c:11245:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc);
+../../../../../apps/UDPEcho/build/telosb/app.c:11247:static int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db);
+../../../../../apps/UDPEcho/build/telosb/app.c:11257:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/UDPEcho/build/telosb/app.c:11260:static inline void UDPShellP__ICMPPing__pingReply(struct in6_addr *source, struct icmp_stats *stats);
+../../../../../apps/UDPEcho/build/telosb/app.c:11271:static inline void UDPShellP__ICMPPing__pingDone(uint16_t ping_rcv, uint16_t ping_n);
+../../../../../apps/UDPEcho/build/telosb/app.c:11278:static inline void UDPShellP__Uptime__overflow(void );
+../../../../../apps/UDPEcho/build/telosb/app.c:11284:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:11287:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id);
+../../../../../apps/UDPEcho/build/telosb/app.c:12225:# 293 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:12226:static inline void UDPShellP__Uptime__overflow(void )
+../../../../../apps/UDPEcho/build/telosb/app.c:12230:  UDPShellP__uptime += 0xffffffff;
+../../../../../apps/UDPEcho/build/telosb/app.c:12236:  UDPShellP__Uptime__overflow();
+../../../../../apps/UDPEcho/build/telosb/app.c:23696:inline static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, uint16_t len){
+../../../../../apps/UDPEcho/build/telosb/app.c:23710:# 275 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:23711:static inline void UDPShellP__ICMPPing__pingReply(struct in6_addr *source, struct icmp_stats *stats)
+../../../../../apps/UDPEcho/build/telosb/app.c:23717:  len = inet_ntop6(source, UDPShellP__reply_buf, MAX_REPLY_LEN);
+../../../../../apps/UDPEcho/build/telosb/app.c:23719:      len += snprintf(UDPShellP__reply_buf + len - 1, MAX_REPLY_LEN - len + 1, UDPShellP__ping_fmt, 
+../../../../../apps/UDPEcho/build/telosb/app.c:23721:      UDPShellP__reply_buf[len] = '\0';
+../../../../../apps/UDPEcho/build/telosb/app.c:23722:      UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, len);
+../../../../../apps/UDPEcho/build/telosb/app.c:23740:      UDPShellP__ICMPPing__pingReply(source, stats);
+../../../../../apps/UDPEcho/build/telosb/app.c:24024:# 158 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:24025:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len)
+../../../../../apps/UDPEcho/build/telosb/app.c:24028:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, str, len);
+../../../../../apps/UDPEcho/build/telosb/app.c:24034:  UDPShellP__ShellCommand__write(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, str, len);
+../../../../../apps/UDPEcho/build/telosb/app.c:24045:  __nesc_result = UDPShellP__ShellCommand__getBuffer(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, len);
+../../../../../apps/UDPEcho/build/telosb/app.c:24112:# 299 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:24113:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv)
+../../../../../apps/UDPEcho/build/telosb/app.c:24120:inline static char *UDPShellP__ShellCommand__eval(uint8_t arg_0x2b480578e1e8, int argc, char **argv){
+../../../../../apps/UDPEcho/build/telosb/app.c:24136:      __nesc_result = UDPShellP__ShellCommand__default__eval(arg_0x2b480578e1e8, argc, argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:24148:# 220 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:24149:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc)
+../../../../../apps/UDPEcho/build/telosb/app.c:24156:  while (len > 0 && *argc < UDPShellP__N_ARGS) {
+../../../../../apps/UDPEcho/build/telosb/app.c:24187:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/UDPEcho/build/telosb/app.c:24191:  char *argv[UDPShellP__N_ARGS];
+../../../../../apps/UDPEcho/build/telosb/app.c:24196:  memcpy(&UDPShellP__session_endpoint, from, sizeof(struct sockaddr_in6 ));
+../../../../../apps/UDPEcho/build/telosb/app.c:24197:  UDPShellP__init_argv((char *)data, len, argv, &argc);
+../../../../../apps/UDPEcho/build/telosb/app.c:24200:      cmd = UDPShellP__lookup_cmd(argv[0], UDPShellP__N_BUILTINS, UDPShellP__builtins);
+../../../../../apps/UDPEcho/build/telosb/app.c:24201:      if (cmd != UDPShellP__CMD_NO_CMD) {
+../../../../../apps/UDPEcho/build/telosb/app.c:24202:          UDPShellP__builtin_actions[cmd].action(argc, argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:24205:      cmd = UDPShellP__lookup_cmd(argv[0], UDPShellP__N_EXTERNAL, UDPShellP__externals);
+../../../../../apps/UDPEcho/build/telosb/app.c:24206:      if (cmd != UDPShellP__CMD_NO_CMD) {
+../../../../../apps/UDPEcho/build/telosb/app.c:24207:          char *reply = UDPShellP__ShellCommand__eval(cmd, argc, argv);
+../../../../../apps/UDPEcho/build/telosb/app.c:24211:            UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, reply, strlen(reply));
+../../../../../apps/UDPEcho/build/telosb/app.c:24216:      cmd = snprintf(UDPShellP__reply_buf, MAX_REPLY_LEN, "sdsh: %s: command not found\n", argv[0]);
+../../../../../apps/UDPEcho/build/telosb/app.c:24217:      UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, cmd);
+../../../../../apps/UDPEcho/build/telosb/app.c:24249:      UDPShellP__UDP__recvfrom(src, payload, len, meta);
+../../../../../apps/UDPEcho/build/telosb/app.c:28462:# 286 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:28463:static inline void UDPShellP__ICMPPing__pingDone(uint16_t ping_rcv, uint16_t ping_n)
+../../../../../apps/UDPEcho/build/telosb/app.c:28469:  len = snprintf(UDPShellP__reply_buf, MAX_REPLY_LEN, UDPShellP__ping_summary, ping_n, ping_rcv);
+../../../../../apps/UDPEcho/build/telosb/app.c:28470:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, len);
+../../../../../apps/UDPEcho/build/telosb/app.c:28486:      UDPShellP__ICMPPing__pingDone(ping_rcv, ping_n);
+../../../../../apps/UDPEcho/build/telosb/app.c:29974:inline static error_t UDPShellP__UDP__bind(uint16_t port){
+../../../../../apps/UDPEcho/build/telosb/app.c:29995:# 302 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:29996:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id)
+../../../../../apps/UDPEcho/build/telosb/app.c:30003:inline static char *UDPShellP__RegisterShellCommand__getCommandName(uint8_t arg_0x2b4805788c70){
+../../../../../apps/UDPEcho/build/telosb/app.c:30019:      __nesc_result = UDPShellP__RegisterShellCommand__default__getCommandName(arg_0x2b4805788c70);
+../../../../../apps/UDPEcho/build/telosb/app.c:30032:inline static UDPShellP__Uptime__size_type UDPShellP__Uptime__get(void ){
+../../../../../apps/UDPEcho/build/telosb/app.c:30046:# 93 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:30047:static inline void UDPShellP__Boot__booted(void )
+../../../../../apps/UDPEcho/build/telosb/app.c:30056:      UDPShellP__uptime = 0;
+../../../../../apps/UDPEcho/build/telosb/app.c:30058:      UDPShellP__boot_time = UDPShellP__Uptime__get();
+../../../../../apps/UDPEcho/build/telosb/app.c:30063:  for (i = 0; i < UDPShellP__N_EXTERNAL; i++) {
+../../../../../apps/UDPEcho/build/telosb/app.c:30064:      UDPShellP__externals[i].c_name[UDPShellP__CMDNAMSIZ - 1] = '\0';
+../../../../../apps/UDPEcho/build/telosb/app.c:30065:      strncpy(UDPShellP__externals[i].c_name, UDPShellP__RegisterShellCommand__getCommandName(i), UDPShellP__CMDNAMSIZ);
+../../../../../apps/UDPEcho/build/telosb/app.c:30066:      UDPShellP__externals[i].c_len = strlen(UDPShellP__externals[i].c_name);
+../../../../../apps/UDPEcho/build/telosb/app.c:30068:  UDPShellP__UDP__bind(2000);
+../../../../../apps/UDPEcho/build/telosb/app.c:30295:  UDPShellP__Boot__booted();
+../../../../../apps/UDPEcho/build/telosb/app.c:31646:inline static error_t UDPShellP__ICMPPing__ping(struct in6_addr *target, uint16_t period, uint16_t n){
+../../../../../apps/UDPEcho/build/telosb/app.c:31660:# 201 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:31661:static inline void UDPShellP__action_ident(int argc, char **argv)
+../../../../../apps/UDPEcho/build/telosb/app.c:31664:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__ident_string, strlen(UDPShellP__ident_string));
+../../../../../apps/UDPEcho/build/telosb/app.c:34588:# 239 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:34589:static int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db)
+../../../../../apps/UDPEcho/build/telosb/app.c:34605:  return UDPShellP__CMD_NO_CMD;
+../../../../../apps/UDPEcho/build/telosb/app.c:34609:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len)
+../../../../../apps/UDPEcho/build/telosb/app.c:34612:  UDPShellP__reply_buf[0] = '\0';
+../../../../../apps/UDPEcho/build/telosb/app.c:34615:    return UDPShellP__reply_buf;
+../../../../../apps/UDPEcho/build/telosb/app.c:35579:# 122 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho/build/telosb/app.c:35580:static void UDPShellP__action_help(int argc, char **argv)
+../../../../../apps/UDPEcho/build/telosb/app.c:35584:  char *pos = UDPShellP__reply_buf;
+../../../../../apps/UDPEcho/build/telosb/app.c:35587:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__help_str, strlen(UDPShellP__help_str));
+../../../../../apps/UDPEcho/build/telosb/app.c:35588:  if (UDPShellP__N_EXTERNAL > 0) {
+../../../../../apps/UDPEcho/build/telosb/app.c:35591:      for (i = 0; i < UDPShellP__N_EXTERNAL; i++) {
+../../../../../apps/UDPEcho/build/telosb/app.c:35592:          if (UDPShellP__externals[i].c_len + 4 < MAX_REPLY_LEN - (pos - UDPShellP__reply_buf)) {
+../../../../../apps/UDPEcho/build/telosb/app.c:35593:              memcpy(pos, UDPShellP__externals[i].c_name, UDPShellP__externals[i].c_len);
+../../../../../apps/UDPEcho/build/telosb/app.c:35594:              pos += UDPShellP__externals[i].c_len;
+../../../../../apps/UDPEcho/build/telosb/app.c:35595:              if (i < UDPShellP__N_EXTERNAL - 1) {
+../../../../../apps/UDPEcho/build/telosb/app.c:35613:      UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, pos - UDPShellP__reply_buf);
+../../../../../apps/UDPEcho/build/telosb/app.c:35627:static void UDPShellP__action_echo(int argc, char **argv)
+../../../../../apps/UDPEcho/build/telosb/app.c:35633:  char *payload = UDPShellP__reply_buf;
+../../../../../apps/UDPEcho/build/telosb/app.c:35642:      if (payload - UDPShellP__reply_buf + arg_len + 1 > MAX_REPLY_LEN) {
+../../../../../apps/UDPEcho/build/telosb/app.c:35654:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, payload - UDPShellP__reply_buf);
+../../../../../apps/UDPEcho/build/telosb/app.c:35657:static void UDPShellP__action_ping6(int argc, char **argv)
+../../../../../apps/UDPEcho/build/telosb/app.c:35668:  UDPShellP__ICMPPing__ping(&dest, 1024, 10);
+../../../../../apps/UDPEcho/build/telosb/app.c:35672:static void UDPShellP__action_uptime(int argc, char **argv)
+../../../../../apps/UDPEcho/build/telosb/app.c:35677:  uint64_t tval = UDPShellP__Uptime__get();
+../../../../../apps/UDPEcho/build/telosb/app.c:35681:    tval = (UDPShellP__uptime + tval - UDPShellP__boot_time) / 1024;
+../../../../../apps/UDPEcho/build/telosb/app.c:35684:  len = snprintf(UDPShellP__reply_buf, MAX_REPLY_LEN, "up %li seconds\n", 
+../../../../../apps/UDPEcho/build/telosb/app.c:35686:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, len);
+Binary file ../../../../../apps/UDPEcho/build/telosb/main.exe matches
+../../../../../apps/UDPEcho/UDPEchoC.nc:69:  components UDPShellC;
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5142:static void UDPShellP__Boot__booted(void );
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5144:static void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *src, void *payload, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5147:static char *UDPShellP__ShellCommand__getBuffer(
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5148:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5153:static char *UDPShellP__ShellCommand__default__eval(
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5154:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5159:static void UDPShellP__ShellCommand__write(
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5160:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5165:static char *UDPShellP__RegisterShellCommand__default__getCommandName(
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:5166:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11319:static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11322:static error_t UDPShellP__UDP__bind(uint16_t port);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11324:static char *UDPShellP__ShellCommand__eval(
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11325:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11330:static char *UDPShellP__RegisterShellCommand__getCommandName(
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11331:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11334:struct sockaddr_in6 UDPShellP__session_endpoint;
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11336:uint64_t UDPShellP__uptime;
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11338:enum UDPShellP____nesc_unnamed4408 {
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11339:  UDPShellP__N_EXTERNAL = 1U
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11343:enum UDPShellP____nesc_unnamed4409 {
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11344:  UDPShellP__N_BUILTINS = 5, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11346:  UDPShellP__N_ARGS = 10, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11347:  UDPShellP__CMD_HELP = 0, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11348:  UDPShellP__CMD_ECHO = 1, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11349:  UDPShellP__CMD_PING6 = 2, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11350:  UDPShellP__CMD_TRACERT6 = 3, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11352:  UDPShellP__CMD_NO_CMD = 0xfe, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11353:  UDPShellP__CMDNAMSIZ = 10
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11356:struct UDPShellP__cmd_name {
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11358:  char c_name[UDPShellP__CMDNAMSIZ];
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11360:struct UDPShellP__cmd_builtin {
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11364:struct UDPShellP__cmd_name UDPShellP__externals[UDPShellP__N_EXTERNAL];
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11367:static inline void UDPShellP__Boot__booted(void );
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11369:char UDPShellP__reply_buf[MAX_REPLY_LEN];
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11371:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11377:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11379:struct UDPShellP__cmd_name;
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11384:struct UDPShellP__cmd_builtin;
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11393:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11395:static inline int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11405:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11408:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:11412:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:23935:inline static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, uint16_t len){
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:23991:# 162 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:23992:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len)
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:23995:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, str, len);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24001:  UDPShellP__ShellCommand__write(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, str, len);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24012:  __nesc_result = UDPShellP__ShellCommand__getBuffer(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, len);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24079:# 305 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24080:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv)
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24087:inline static char *UDPShellP__ShellCommand__eval(uint8_t arg_0x2ad8624d11e8, int argc, char **argv){
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24103:      __nesc_result = UDPShellP__ShellCommand__default__eval(arg_0x2ad8624d11e8, argc, argv);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24115:# 243 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24116:static inline int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db)
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24132:  return UDPShellP__CMD_NO_CMD;
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24136:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc)
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24143:  while (len > 0 && *argc < UDPShellP__N_ARGS) {
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24174:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24178:  char *argv[UDPShellP__N_ARGS];
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24183:  memcpy(&UDPShellP__session_endpoint, from, sizeof(struct sockaddr_in6 ));
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24184:  UDPShellP__init_argv((char *)data, len, argv, &argc);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24194:      cmd = UDPShellP__lookup_cmd(argv[0], UDPShellP__N_EXTERNAL, UDPShellP__externals);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24195:      if (cmd != UDPShellP__CMD_NO_CMD) {
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24196:          char *reply = UDPShellP__ShellCommand__eval(cmd, argc, argv);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24200:            UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, reply, strlen(reply));
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24205:      cmd = snprintf(UDPShellP__reply_buf, MAX_REPLY_LEN, "sdsh: %s: command not found\n", argv[0]);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24206:      UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, cmd);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:24238:      UDPShellP__UDP__recvfrom(src, payload, len, meta);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30186:inline static error_t UDPShellP__UDP__bind(uint16_t port){
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30207:# 309 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30208:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id)
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30215:inline static char *UDPShellP__RegisterShellCommand__getCommandName(uint8_t arg_0x2ad8624cbc70){
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30231:      __nesc_result = UDPShellP__RegisterShellCommand__default__getCommandName(arg_0x2ad8624cbc70);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30243:# 93 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30244:static inline void UDPShellP__Boot__booted(void )
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30253:      UDPShellP__uptime = 0;
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30262:  for (i = 0; i < UDPShellP__N_EXTERNAL; i++) {
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30263:      UDPShellP__externals[i].c_name[UDPShellP__CMDNAMSIZ - 1] = '\0';
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30264:      strncpy(UDPShellP__externals[i].c_name, UDPShellP__RegisterShellCommand__getCommandName(i), UDPShellP__CMDNAMSIZ);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30265:      UDPShellP__externals[i].c_len = strlen(UDPShellP__externals[i].c_name);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30267:  UDPShellP__UDP__bind(2000);
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:30486:  UDPShellP__Boot__booted();
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:34797:# 156 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:34798:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len)
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:34801:  UDPShellP__reply_buf[0] = '\0';
+../../../../../apps/UDPEcho_PIR/build/telosb/app.c:34804:    return UDPShellP__reply_buf;
+Binary file ../../../../../apps/UDPEcho_PIR/build/telosb/main.exe matches
+../../../../../apps/UDPEcho_PIR/UDPEchoC.nc:91:  components UDPShellC;
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5390:static void UDPShellP__Boot__booted(void );
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5392:static void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *src, void *payload, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5395:static char *UDPShellP__ShellCommand__getBuffer(
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5396:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5401:static char *UDPShellP__ShellCommand__default__eval(
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5402:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5407:static void UDPShellP__ShellCommand__write(
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5408:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5413:static char *UDPShellP__RegisterShellCommand__default__getCommandName(
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:5414:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12054:static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12057:static error_t UDPShellP__UDP__bind(uint16_t port);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12059:static char *UDPShellP__ShellCommand__eval(
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12060:# 42 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12065:static char *UDPShellP__RegisterShellCommand__getCommandName(
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12066:# 43 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12069:struct sockaddr_in6 UDPShellP__session_endpoint;
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12071:uint64_t UDPShellP__uptime;
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12073:enum UDPShellP____nesc_unnamed4423 {
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12074:  UDPShellP__N_EXTERNAL = 1U
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12078:enum UDPShellP____nesc_unnamed4424 {
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12079:  UDPShellP__N_BUILTINS = 5, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12081:  UDPShellP__N_ARGS = 10, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12082:  UDPShellP__CMD_HELP = 0, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12083:  UDPShellP__CMD_ECHO = 1, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12084:  UDPShellP__CMD_PING6 = 2, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12085:  UDPShellP__CMD_TRACERT6 = 3, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12087:  UDPShellP__CMD_NO_CMD = 0xfe, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12088:  UDPShellP__CMDNAMSIZ = 10
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12091:struct UDPShellP__cmd_name {
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12093:  char c_name[UDPShellP__CMDNAMSIZ];
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12095:struct UDPShellP__cmd_builtin {
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12099:struct UDPShellP__cmd_name UDPShellP__externals[UDPShellP__N_EXTERNAL];
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12102:static inline void UDPShellP__Boot__booted(void );
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12104:char UDPShellP__reply_buf[MAX_REPLY_LEN];
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12106:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12112:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12114:struct UDPShellP__cmd_name;
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12119:struct UDPShellP__cmd_builtin;
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12128:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12130:static inline int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12140:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12143:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:12147:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24658:inline static error_t UDPShellP__UDP__sendto(struct sockaddr_in6 *dest, void *payload, uint16_t len){
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24714:# 162 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24715:static inline void UDPShellP__ShellCommand__write(uint8_t cmd_id, char *str, int len)
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24718:  UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, str, len);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24724:  UDPShellP__ShellCommand__write(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, str, len);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24735:  __nesc_result = UDPShellP__ShellCommand__getBuffer(/*RouteCmdC.ShellCommandC*/ShellCommandC__0__CMD_ID, len);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24802:# 305 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24803:static inline char *UDPShellP__ShellCommand__default__eval(uint8_t cmd_id, int argc, char **argv)
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24810:inline static char *UDPShellP__ShellCommand__eval(uint8_t arg_0x2ba90de611e8, int argc, char **argv){
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24826:      __nesc_result = UDPShellP__ShellCommand__default__eval(arg_0x2ba90de611e8, argc, argv);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24838:# 243 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24839:static inline int UDPShellP__lookup_cmd(char *cmd, int dbsize, struct UDPShellP__cmd_name *db)
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24855:  return UDPShellP__CMD_NO_CMD;
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24859:static inline void UDPShellP__init_argv(char *cmd, uint16_t len, char **argv, int *argc)
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24866:  while (len > 0 && *argc < UDPShellP__N_ARGS) {
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24897:static inline void UDPShellP__UDP__recvfrom(struct sockaddr_in6 *from, void *data, 
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24901:  char *argv[UDPShellP__N_ARGS];
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24906:  memcpy(&UDPShellP__session_endpoint, from, sizeof(struct sockaddr_in6 ));
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24907:  UDPShellP__init_argv((char *)data, len, argv, &argc);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24917:      cmd = UDPShellP__lookup_cmd(argv[0], UDPShellP__N_EXTERNAL, UDPShellP__externals);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24918:      if (cmd != UDPShellP__CMD_NO_CMD) {
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24919:          char *reply = UDPShellP__ShellCommand__eval(cmd, argc, argv);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24923:            UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, reply, strlen(reply));
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24928:      cmd = snprintf(UDPShellP__reply_buf, MAX_REPLY_LEN, "sdsh: %s: command not found\n", argv[0]);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24929:      UDPShellP__UDP__sendto(&UDPShellP__session_endpoint, UDPShellP__reply_buf, cmd);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:24961:      UDPShellP__UDP__recvfrom(src, payload, len, meta);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32398:inline static error_t UDPShellP__UDP__bind(uint16_t port){
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32419:# 309 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32420:static inline char *UDPShellP__RegisterShellCommand__default__getCommandName(uint8_t cmd_id)
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32427:inline static char *UDPShellP__RegisterShellCommand__getCommandName(uint8_t arg_0x2ba90de5ac70){
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32443:      __nesc_result = UDPShellP__RegisterShellCommand__default__getCommandName(arg_0x2ba90de5ac70);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32455:# 93 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32456:static inline void UDPShellP__Boot__booted(void )
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32465:      UDPShellP__uptime = 0;
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32474:  for (i = 0; i < UDPShellP__N_EXTERNAL; i++) {
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32475:      UDPShellP__externals[i].c_name[UDPShellP__CMDNAMSIZ - 1] = '\0';
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32476:      strncpy(UDPShellP__externals[i].c_name, UDPShellP__RegisterShellCommand__getCommandName(i), UDPShellP__CMDNAMSIZ);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32477:      UDPShellP__externals[i].c_len = strlen(UDPShellP__externals[i].c_name);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32479:  UDPShellP__UDP__bind(2000);
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:32698:  UDPShellP__Boot__booted();
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:37000:# 156 "/home/dion/tinyos-main/tos/lib/net/blip/shell/UDPShellP.nc"
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:37001:static char *UDPShellP__ShellCommand__getBuffer(uint8_t cmd_id, uint16_t len)
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:37004:  UDPShellP__reply_buf[0] = '\0';
+../../../../../apps/UDPEcho_fan/build/telosb/app.c:37007:    return UDPShellP__reply_buf;
+Binary file ../../../../../apps/UDPEcho_fan/build/telosb/main.exe matches
+../../../../../apps/UDPEcho_fan/UDPEchoC.nc:79:  components UDPShellC;
+Binary file ../../../../../.git/index matches
