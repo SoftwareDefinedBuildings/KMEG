@@ -28,6 +28,7 @@ Remember you need the correct environment
 
 go to the tinyos-main directory
 
+```
 export TOSROOT=`pwd`
 export TOSDIR=$TOSROOT/tos
 export MAKERULES=$TOSROOT/support/make/Makerules
@@ -35,6 +36,7 @@ export CLASSPATH=$TOSROOT/support/sdk/java/tinyos.jar:.
 export PYTHONPATH=$TOSROOT/support/sdk/python:$PYTHONPATH
 export PATH=$TOSROOT/support/sdk/c:$PATH
 export PATH=$TOSROO
+```
 
 make epic blip reinstall,<node num> bsl,/dev/<usb device> # try w/o "bsl," ?
 
