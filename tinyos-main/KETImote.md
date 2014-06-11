@@ -38,13 +38,13 @@ export PATH=$TOSROOT/support/sdk/c:$PATH
 export PATH=$TOSROO
 ```
 
-make epic blip reinstall,<node num> bsl,/dev/<usb device> # try w/o "bsl," ?
+```make epic blip reinstall,<node num> /dev/<usb device>```
 
 make sure to add the path var to include tinyos-main/tools/platforms/msp430/motelist/motelist
 as well as tinyos-main/tools/platforms/msp430/pybsl/tos-bsl
 
 make those binaries executable! chmod +x
 
-make sure that /dev/ttyUSB0 is world-writeable (chmod 777 or whatever)
+make sure that /dev/ttyUSB0 is world-writeable (chmod 777 or whatever). Use whatever /dev/ttyUSB your programmer is on
 
-in vagrant, enable the serial ports as well as the usb port
+in vagrant/virtualbox, enable the serial ports as well as the usb port
