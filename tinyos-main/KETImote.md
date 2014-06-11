@@ -6,7 +6,7 @@ sudo docker build -t keti .
 sudo docker run -i -t keti # this will give you a bash prompt
 ```
 
-Once inside the prompt, go to `/root/KMEG/tinyos-main/apps` and run `make epic`. The KETI-mote sensor program is in
+Once inside the prompt, go to `/root/KMEG/tinyos-main/apps` and run `make epic blip`. The KETI-mote sensor program is in
 `/root/KMEG/tinyos-main/apps/UDPEcho_TH_CO2` and within that directory, you want `build/epic/main.ihex`.
 
 To get the build file from the Docker file, run
