@@ -80,7 +80,7 @@ Now, unplug the board from the KETImote and plug it into the programmer. Inside 
 run 
 
 ```
-make epic tmote reinstall,<node num> /dev/ttyUSB0
+make tmote reinstall,<node num> /dev/ttyUSB0
 ```
 
 `<node num>` should be unique for this mote and is just an arbitrary integer. Write this down and label the
