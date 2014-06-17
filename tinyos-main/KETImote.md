@@ -80,7 +80,7 @@ Now, unplug the board from the KETImote and plug it into the programmer. Inside 
 run 
 
 ```
-make tmote reinstall,<node num> /dev/ttyUSB0
+make tmote reinstall,<node num>
 ```
 
 `<node num>` should be unique for this mote and is just an arbitrary integer (2 or greater. 1 is reserved). Write this down and label the
@@ -110,7 +110,7 @@ make tmote blip
 Unplug any other programmers from your computer, and then to install, run
 
 ```
-make tmote reinstall,1 /dev/ttyUSB0
+make tmote reinstall,1
 ```
 
 Keep the mote plugged in, but in a separate window, run (as root)
@@ -141,7 +141,7 @@ This USB device should be the `/dev/ttyUSB` where the Telos is.
 
 ```
 cd $TOSROOT/apps/UDPEcho_TH_CO2/util
-python Listener.py serial@/dev/ttyUSB0:tmote
+python Listener.py
 ```
 
 You should see some output from this.
