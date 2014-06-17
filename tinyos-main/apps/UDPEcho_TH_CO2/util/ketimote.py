@@ -22,7 +22,7 @@ class Echo(DatagramProtocol):
         print readings
         if motetype == 0x64:
             print 'Temperatures', map(temp, readings[1::2])
-            print 'Relative Humidity', map(temp, readings[::2])
+            print 'Relative Humidity', map(humidity, readings[::2])
         elif motetype == 0x65:
             print 'CO2 ppm', readings
         else:
