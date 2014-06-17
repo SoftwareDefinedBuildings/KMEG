@@ -43,13 +43,13 @@ configuration UDPEchoC {
   UDPEchoP.Leds -> LedsC;
 
 #if TH
-  components new SensirionSht11C() as Sensor;
-  UDPEchoP.Read -> Sensor.Temperature;
+  components new SensirionSht11C() as THSensor;
+  UDPEchoP.Read -> THSensor.Temperature;
 #endif
 
 #if CO2
-  components new CO2AdcC() as Sensor;
-  UDPEchoP.Read -> Sensor;
+  components new CO2AdcC() as CO2Sensor;
+  UDPEchoP.Read -> CO2Sensor;
 #endif
 
   components new TimerMilliC();

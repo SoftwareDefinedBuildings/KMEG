@@ -125,6 +125,9 @@ module UDPEchoP {
     if(reading == NREADINGS){
 
       stats.seqno++;
+#if TH
+      stats.type = 0x64;
+#endif
       stats.sender = TOS_NODE_ID;
       stats.interval = REPORT_PERIOD;
 
