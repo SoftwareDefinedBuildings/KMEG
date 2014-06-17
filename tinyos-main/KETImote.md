@@ -83,7 +83,7 @@ run
 make tmote reinstall,<node num> /dev/ttyUSB0
 ```
 
-`<node num>` should be unique for this mote and is just an arbitrary integer. Write this down and label the
+`<node num>` should be unique for this mote and is just an arbitrary integer (2 or greater. 1 is reserved). Write this down and label the
 mote with it so that you know which mote is which ID. The above command flashed the mote, and if all was
 successful, you should see something like 
 
@@ -92,10 +92,56 @@ Mass Erase...
 Transmit default password...
 ... more stuff here
 Reset device...
-rm -rf bunch of stuff
+etc...
 ```
 
+## Talking to Motes
 
-## Coming Soon:
+Get a Telos mote or attach one of the KETI boards to programmer and plug it in to your computer (if you are using Virtualbox, you will have
+to do the trick where you halt the VM, add the USB device, and then restart the VM.
 
-Instructions on how to actually talk to these...
+We are going to flash our mote with the ability to act as a router between the motes and our computer. Go to the `PppRouter` application:
+
+```
+cd $TOSROOT/apps/PppRouter
+make tmote blip
+```
+
+Unplug any other programmers from your computer, and then to install, run
+
+```
+make tmote reinstall,1 /dev/ttyUSB0
+```
+
+Keep the mote plugged in, but in a separate window, run (as root)
+
+```
+pppd debug passive noauth nodetach 115200 /dev/ttyUSB0 nocrtscts nocdtrcts lcp-echo-interval 0 noccp noip ipv6 ::23,::24
+```
+
+This will not exit, but if it is successful, you should see some output like
+
+```
+[bunch of stuff here]
+Script /etc/ppp/ipv6-up started (pid 3033)
+Script /etc/ppp/ipv6-up finished (pid 3033), status = 0x0
+```
+
+Then in another window, run
+
+```
+sudo ifconfig ppp0 add fec0::100/64
+```
+
+which should exit cleanly. When you run `ifconfig`, you should see `ppp0` as an interface now.
+
+Eventually, I plan on having some cleaner code to help read the output of these motes, but for now, go to `UDPEcho_TH_CO2/util` folder
+and look at the `Listener.py` file. We will run the Listener script with an argument that tells it which USB device to read output from.
+This USB device should be the `/dev/ttyUSB` where the Telos is.
+
+```
+cd $TOSROOT/apps/UDPEcho_TH_CO2/util
+python Listener.py serial@/dev/ttyUSB0:tmote
+```
+
+You should see some output from this.
