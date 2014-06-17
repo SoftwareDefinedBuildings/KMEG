@@ -1,6 +1,5 @@
 from twisted.internet import reactor, protocol
 import socket
-import UdpReport
 from twisted.internet.protocol import DatagramProtocol
 import tinyos.message.Message
 
