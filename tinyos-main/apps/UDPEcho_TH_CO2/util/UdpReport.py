@@ -5,19 +5,20 @@
 #
 
 import tinyos.message.Message
+import struct
 
 # The default size of this message type in bytes.
-DEFAULT_MESSAGE_SIZE = 41
+DEFAULT_MESSAGE_SIZE = 43
 
 # The Active Message type associated with this message.
 AM_TYPE = -1
 
 class UdpReport(tinyos.message.Message.Message):
-    # Create a new UdpReport of size 21.
-    def __init__(self, data="", addr=None, gid=None, base_offset=0, data_length=41):
+    # Create a new UdpReport of size 43.
+    def __init__(self, data="", addr=None, gid=None, base_offset=0, data_length=43):
         tinyos.message.Message.Message.__init__(self, data, addr, gid, base_offset, data_length)
         self.amTypeSet(AM_TYPE)
-    
+
     # Get AM_TYPE
     def get_amType(cls):
         return AM_TYPE
@@ -83,30 +84,19 @@ class UdpReport(tinyos.message.Message.Message):
         except:
             pass
         try:
-            s += "  [readings=0x%s]\n" % (self.get_readings())
+            s += "  [type=0x%x]\n" % (self.get_type())
+        except:
+            pass
+        try:
+            s += "  [readings=";
+            for i in range(0, 10):
+                s += "0x%x " % (self.getElement_readings(i) & 0xffff)
+            s += "]\n";
         except:
             pass
         return s
 
     # Message-type-specific access methods appear below.
-
-    #
-    # Accessor methods for field: readings
-    #   Field type: int
-    #   Offset (bits): 168
-    #   Size (bits): 16*10
-    #
-
-    def get_readings(self):
-        readings_s = ""
-        for i in range(10):
-            readings_s += str(self.getUIntElement(self.offsetBits_readings()+i*16, 16, 1))
-            readings_s += " "
-        return readings_s
-    
-    def offsetBits_readings(self):
-        return 168
-
 
     #
     # Accessor methods for field: seqno
@@ -822,6 +812,174 @@ class UdpReport(tinyos.message.Message.Message):
     #
     def sizeBits_udp_cksum(self):
         return 16
+    
+    #
+    # Accessor methods for field: type
+    #   Field type: int
+    #   Offset (bits): 168
+    #   Size (bits): 16
+    #
 
+    #
+    # Return whether the field 'type' is signed (False).
+    #
+    def isSigned_type(self):
+        return False
+    
+    #
+    # Return whether the field 'type' is an array (False).
+    #
+    def isArray_type(self):
+        return False
+    
+    #
+    # Return the offset (in bytes) of the field 'type'
+    #
+    def offset_type(self):
+        return (168 / 8)
+    
+    #
+    # Return the offset (in bits) of the field 'type'
+    #
+    def offsetBits_type(self):
+        return 168
+    
+    #
+    # Return the value (as a int) of the field 'type'
+    #
+    def get_type(self):
+        return self.getUIntElement(self.offsetBits_type(), 16, 1)
+    
+    #
+    # Set the value of the field 'type'
+    #
+    def set_type(self, value):
+        self.setUIntElement(self.offsetBits_type(), 16, value, 1)
+    
+    #
+    # Return the size, in bytes, of the field 'type'
+    #
+    def size_type(self):
+        return (16 / 8)
+    
+    #
+    # Return the size, in bits, of the field 'type'
+    #
+    def sizeBits_type(self):
+        return 16
+    
+    #
+    # Accessor methods for field: readings
+    #   Field type: int[]
+    #   Offset (bits): 184
+    #   Size of each element (bits): 16
+    #
 
+    #
+    # Return whether the field 'readings' is signed (False).
+    #
+    def isSigned_readings(self):
+        return False
+    
+    #
+    # Return whether the field 'readings' is an array (True).
+    #
+    def isArray_readings(self):
+        return True
+    
+    #
+    # Return the offset (in bytes) of the field 'readings'
+    #
+    def offset_readings(self, index1):
+        offset = 184
+        if index1 < 0 or index1 >= 10:
+            raise IndexError
+        offset += 0 + index1 * 16
+        return (offset / 8)
+    
+    #
+    # Return the offset (in bits) of the field 'readings'
+    #
+    def offsetBits_readings(self, index1):
+        offset = 184
+        if index1 < 0 or index1 >= 10:
+            raise IndexError
+        offset += 0 + index1 * 16
+        return offset
+    
+    #
+    # Return the entire array 'readings' as a int[]
+    #
+    def get_readings(self):
+        tmp = [None]*10
+        for index0 in range (0, self.numElements_readings(0)):
+                tmp[index0] = self.getElement_readings(index0)
+        return tmp
+    
+    #
+    # Set the contents of the array 'readings' from the given int[]
+    #
+    def set_readings(self, value):
+        for index0 in range(0, len(value)):
+            self.setElement_readings(index0, value[index0])
+
+    #
+    # Return an element (as a int) of the array 'readings'
+    #
+    def getElement_readings(self, index1):
+        return self.getUIntElement(self.offsetBits_readings(index1), 16, 1)
+    
+    #
+    # Set an element of the array 'readings'
+    #
+    def setElement_readings(self, index1, value):
+        self.setUIntElement(self.offsetBits_readings(index1), 16, value, 1)
+    
+    #
+    # Return the total size, in bytes, of the array 'readings'
+    #
+    def totalSize_readings(self):
+        return (160 / 8)
+    
+    #
+    # Return the total size, in bits, of the array 'readings'
+    #
+    def totalSizeBits_readings(self):
+        return 160
+    
+    #
+    # Return the size, in bytes, of each element of the array 'readings'
+    #
+    def elementSize_readings(self):
+        return (16 / 8)
+    
+    #
+    # Return the size, in bits, of each element of the array 'readings'
+    #
+    def elementSizeBits_readings(self):
+        return 16
+    
+    #
+    # Return the number of dimensions in the array 'readings'
+    #
+    def numDimensions_readings(self):
+        return 1
+    
+    #
+    # Return the number of elements in the array 'readings'
+    #
+    def numElements_readings():
+        return 10
+    
+    #
+    # Return the number of elements in the array 'readings'
+    # for the given dimension.
+    #
+    def numElements_readings(self, dimension):
+        array_dims = [ 10,  ]
+        if dimension < 0 or dimension >= 1:
+            raise IndexException
+        if array_dims[dimension] == 0:
+            raise IndexError
+        return array_dims[dimension]
     
