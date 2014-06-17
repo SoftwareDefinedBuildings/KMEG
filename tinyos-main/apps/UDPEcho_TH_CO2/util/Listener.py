@@ -1,5 +1,7 @@
 
 import socket
+import struct
+import binascii
 import UdpReport
 import re
 import sys
@@ -32,21 +34,33 @@ class PrintStats(threading.Thread):
 	print "%i total" % len(stats)
         print "-" * 40
 
+def temp(x):
+    return -40.1 + x * .01
+
+def humidity(x):
+    return -4.0 + .0405 * x - .0000028 * (x**2)
+
 if __name__ == '__main__':
     s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
     s.bind(('', port))
-    ps = PrintStats()
-    ps.start()
+    #ps = PrintStats()
+    #ps.start()
 
     while True:
         data, addr = s.recvfrom(1024)
         if (len(data) > 0):
-            rpt = UdpReport.UdpReport(data=data, data_length=len(data))
-            print rpt.get_seqno()
-            print rpt.get_interval()
-            print rpt.get_readings()
+            print len(data), [ord(x) for x in data]
 
-            print addr[0]
+            rpt = UdpReport.UdpReport(data=data, data_length=len(data))
+            print 'seqno', rpt.get_seqno(), rpt.get_amType()
+            print 'sender', rpt.get_sender()
+            print 'type', rpt.get_type()
+            print 'interval', rpt.get_interval()
+            print 'readings', rpt.get_readings()
+            print 'Temperatures', map(temp, rpt.get_readings()[1::2])
+            print 'Relative Humidity', map(humidity, rpt.get_readings()[::2])
+
+            print 'addr[0]', addr[0]
 
             if not addr[0] in stats:
                 stats[addr[0]] = (0, time.time(), rpt.get_seqno(), rpt.get_seqno())
