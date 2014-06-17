@@ -2,6 +2,9 @@ from twisted.internet import reactor, protocol
 import socket
 from twisted.internet.protocol import DatagramProtocol
 import tinyos.message.Message
+from ConfigParser import RawConfigParser
+import time
+from smap.driver import SmapDriver
 
 port = 7000
 THRH = 0x64
@@ -66,27 +69,86 @@ class KETIGram(tinyos.message.Message.Message):
     def PIR_offsetBits_readings(self):
         return 168
 
-class Echo(DatagramProtocol):
+class Monitor(DatagramProtocol):
+    def __init__(self, driver):
+        self.driver = driver
+
     def datagramReceived(self, data, (host, port)):
         rpt = KETIGram(data=data, data_length=len(data))
         readings = rpt.get_readings()
         motetype = rpt.get_type()
+        moteid = host.split('::')[-1]
         print readings
         if motetype == 0x64:
             print 'Temperatures', map(temp, readings[1::2])
+            for r in map(temp, readings[1::2]):
+                self.driver.add('/' + moteid + '/temperature', r)
             print 'Relative Humidity', map(humidity, readings[::2])
+            for r in map(humidity, readings[::2]):
+                self.driver.add('/' + moteid + '/humidity', r)
         elif motetype == 0x65:
+            for r in readings:
+                self.driver.add('/' + moteid + '/co2', r)
             print 'CO2 ppm', readings
         elif motetype == 0x66:
             print 'Occupancy', readings
+            self.driver.add('/' + moteid + '/pir', readings)
         else:
             print motetype
         print 'From', host
 
-s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-s.setblocking(False)
-s.bind(('', port))
-port = reactor.adoptDatagramPort(s.fileno(), socket.AF_INET6, Echo())
-s.close()
-reactor.run()
+
+class KETIDriver(SmapDriver):
+    CHANNELS = {'temperature': ('C', 'double'),
+                'humidity': ('%RH', 'double'),
+                'pir': ('#', 'long'),
+                'co2': ('ppm', 'long')}
+
+    def setup(self, opts):
+        self.port = opts.get('UDP_port', 7000)
+        self.s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+        self.s.setblocking(False)
+        self.s.bind(('', self.port))
+        self.config = RawConfigParser()
+        self.config.read(opts.get('config','motes.cfg'))
+        self.monitor = None
+        self.socker = None
+
+        for mote in self.config.sections():
+            if mote == 'global':
+                continue
+            moteid = str(mote.split(':')[-1])
+            motetype = self.config.get(mote, 'type')
+            metadata = dict(self.config.items(mote))
+            metadata.update({'moteid': moteid})
+            if motetype == 'TH':
+                self.add_timeseries('/' + str(moteid) + '/temperature',
+                        self.CHANNELS['temperature'][0], data_type=self.CHANNELS['temperature'][1])
+                self.add_timeseries('/' + str(moteid) + '/humidity',
+                        self.CHANNELS['humidity'][0], data_type=self.CHANNELS['humidity'][1])
+                self.set_metadata('/' + str(moteid) + '/temperature', metadata)
+                self.set_metadata('/' + str(moteid) + '/humidity', metadata)
+            elif motetype == 'CO2':
+                self.add_timeseries('/' + str(moteid) + '/co2',
+                        self.CHANNELS['co2'][0], data_type=self.CHANNELS['co2'][1])
+                self.set_metadata('/' + str(moteid) + '/co2', metadata)
+            elif motetype == 'PIR':
+                self.add_timeseries('/' + str(moteid) + '/pir',
+                        self.CHANNELS['pir'][0], data_type=self.CHANNELS['pir'][1])
+                self.set_metadata('/' + str(moteid) + '/pir', metadata)
+
+    def start(self):
+        self.monitor = Monitor(self)
+        self.socket = reactor.adoptDatagramPort(self.s.fileno(), socket.AF_INET6, self.monitor)
+        self.s.close()
+
+
+
+if __name__ == '__main__':
+    s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+    s.setblocking(False)
+    s.bind(('', port))
+    port = reactor.adoptDatagramPort(s.fileno(), socket.AF_INET6, Monitor())
+    s.close()
+    reactor.run()
 
