@@ -2,6 +2,7 @@ from twisted.internet import reactor, protocol
 import socket
 import UdpReport
 from twisted.internet.protocol import DatagramProtocol
+import tinyos.message.Message
 
 port = 7000
 THRH = 0x64
@@ -14,9 +15,61 @@ def temp(x):
 def humidity(x):
     return -4.0 + .0405 * x - .0000028 * (x**2)
 
+class KETIGram(tinyos.message.Message.Message):
+    def __init__(self, data="", addr=None, gid=None, base_offset=0, data_length=43):
+        if len(data) == 21 or len(data) == 41:
+            # this is a PIR sensor
+            self.get_readings = self.PIR_get_readings
+            self.offsetBits_readings = self.PIR_offsetBits_readings
+            self.get_type = lambda : 0x66
+            tinyos.message.Message.Message.__init__(self, data, addr, gid, base_offset, len(data))
+        elif len(data) == 43:
+            # this is TH / RH / CO2 sensor
+            tinyos.message.Message.Message.__init__(self, data, addr, gid, base_offset, len(data))
+            self.get_readings = self.TH_get_readings
+            self.offsetBits_readings = self.TH_offsetBits_readings
+        else:
+            print len(data)
+        print self.get_readings
+
+    def numElements_readings(self, dimension):
+        array_dims = [ 10,  ]
+        if dimension < 0 or dimension >= 1:
+            raise IndexException
+        if array_dims[dimension] == 0:
+            raise IndexError
+        return array_dims[dimension]
+
+    def TH_offsetBits_readings(self, index1):
+        offset = 184
+        if index1 < 0 or index1 >= 10:
+            raise IndexError
+        offset += 0 + index1 * 16
+        return offset
+
+    def getElement_readings(self, index1):
+        return self.getUIntElement(self.offsetBits_readings(index1), 16, 1)
+
+    def TH_get_readings(self):
+        tmp = [None]*10
+        for index0 in range (0, self.numElements_readings(0)):
+                tmp[index0] = self.getElement_readings(index0)
+        return tmp
+
+    def offsetBits_type(self):
+        return 168
+    def get_type(self):
+        return self.getUIntElement(self.offsetBits_type(), 16, 1)
+
+    def PIR_get_readings(self):
+        return self.getUIntElement(self.offsetBits_readings(), 16, 1)
+
+    def PIR_offsetBits_readings(self):
+        return 168
+
 class Echo(DatagramProtocol):
     def datagramReceived(self, data, (host, port)):
-        rpt = UdpReport.UdpReport(data=data, data_length=len(data))
+        rpt = KETIGram(data=data, data_length=len(data))
         readings = rpt.get_readings()
         motetype = rpt.get_type()
         print readings
@@ -25,8 +78,10 @@ class Echo(DatagramProtocol):
             print 'Relative Humidity', map(humidity, readings[::2])
         elif motetype == 0x65:
             print 'CO2 ppm', readings
-        else:
+        elif motetype == 0x66:
             print 'Occupancy', readings
+        else:
+            print motetype
         print 'From', host
 
 s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
