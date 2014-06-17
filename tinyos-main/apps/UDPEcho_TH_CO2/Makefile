@@ -9,7 +9,8 @@ COMPONENT=UDPEchoC
 CFLAGS += -DCC2420_DEF_RFPOWER=4
 
 CFLAGS += -DTH
-CFLAGS += -DCO2
+CFLAGS += -DRH
+#CFLAGS += -DCO2
 #CFLAGS += -DPIR
 
 # enable dma on the radio

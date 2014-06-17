@@ -47,7 +47,7 @@ configuration UDPEchoC {
   UDPEchoP.Read -> THSensor.Temperature;
 #endif
 
-#if CO2
+#if CO2 || RH
   components new CO2AdcC() as CO2Sensor;
   UDPEchoP.Read -> CO2Sensor;
 #endif

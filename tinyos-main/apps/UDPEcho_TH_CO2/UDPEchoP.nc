@@ -125,8 +125,10 @@ module UDPEchoP {
     if(reading == NREADINGS){
 
       stats.seqno++;
-#if TH
+#if TH || RH
       stats.type = 0x64;
+#elif CO2
+      stats.type = 0x65;
 #endif
       stats.sender = TOS_NODE_ID;
       stats.interval = REPORT_PERIOD;
