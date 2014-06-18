@@ -63,7 +63,7 @@ chmod +x "$TOSROOT/tools/platforms/msp430/motelist/motelist"
 chmod +x "$TOSROOT/tools/platforms/msp430/pybsl/tos-bsl"
 ```
 
-Now, go to the apps folder for the KETI-motes. For the temperature/humidity/co2 sensors, this is `UDPEcho_TH_CO2`.
+Now, go to the apps folder for the KETI-motes. For the temperature/humidity/illumination/co2 sensors, this is `UDPEcho_TH_CO2`.
 
 ```
 cd $TOSROOT/apps/UDPEcho_TH_CO2
@@ -117,6 +117,7 @@ To flash a TH mote, use the `UDPEcho_TH_CO2` application, and make sure the Make
 ```
 CFLAGS += -DTH
 CFLAGS += -DRH
+CFLAGS += -DIll
 #CFLAGS += -DCO2
 #CFLAGS += -DPIR
 ```
@@ -130,6 +131,7 @@ To flash a CO2 mote, use the `UDPEcho_TH_CO2` application, and make sure to edit
 ```
 #CFLAGS += -DTH
 #CFLAGS += -DRH
+#CFLAGS += -DIll
 CFLAGS += -DCO2
 #CFLAGS += -DPIR
 ```
