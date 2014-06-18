@@ -1,6 +1,15 @@
 To facilitate creating a build/flash environment for KETImotes and tiny-os, I have put together
-a provisioned VM for you to use. If you do not want to use a VM, like if you are already on Linux,
-then you can just follow the instructions in the `vagrant/Vagrantfile` -- look at the top for the script.
+a provisioned VM for you to use. 
+
+If you do not want to use a VM, like if you are already on Linux, then you can just run the `vagrant/setup.sh` script.
+Copy it onto your Ubuntu installation (12.04 or later should work), and run
+
+```
+sudo su root
+. setup.sh
+```
+
+and the process will take care of itself.
 
 If you do want to use a VM, install [vagrant](http://www.vagrantup.com/) and a backend for vagrant, like
 [virtualbox](https://www.virtualbox.org/). You want a provider that allows you to enable/forward the USB
