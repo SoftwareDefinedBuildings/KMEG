@@ -43,15 +43,15 @@ which should drop you into a shell prompt inside the VM. You should be at `/home
 sudo su root # should be passwordless
 cd /home/vagrant/KMEG/tinyos-main
 export TOSROOT=`pwd`
-export TOSDIR=$TOSROOT/tos
-export MAKERULES=$TOSROOT/support/make/Makerules
-export CLASSPATH=$TOSROOT/support/sdk/java/tinyos.jar:.
-export PYTHONPATH=$TOSROOT/support/sdk/python:$PYTHONPATH
-export PATH=$TOSROOT/support/sdk/c:$PATH
-export PATH=$TOSROOT/tools/platforms/msp430/motelist:$PATH
-export PATH=$TOSROOT/tools/platforms/msp430/pybsl:$PATH
-chmod +x $TOSROOT/tools/platforms/msp430/motelist/motelist
-chmod +x $TOSROOT/tools/platforms/msp430/pybsl/tos-bsl
+export TOSDIR="$TOSROOT/tos"
+export MAKERULES="$TOSROOT/support/make/Makerules"
+export CLASSPATH="$TOSROOT/support/sdk/java/tinyos.jar:."
+export PYTHONPATH="$TOSROOT/support/sdk/python:$PYTHONPATH"
+export PATH="$TOSROOT/support/sdk/c:$PATH"
+export PATH="$TOSROOT/tools/platforms/msp430/motelist:$PATH"
+export PATH="$TOSROOT/tools/platforms/msp430/pybsl:$PATH"
+chmod +x "$TOSROOT/tools/platforms/msp430/motelist/motelist"
+chmod +x "$TOSROOT/tools/platforms/msp430/pybsl/tos-bsl"
 ```
 
 Now, go to the apps folder for the KETI-motes. For the temperature/humidity/co2 sensors, this is `UDPEcho_TH_CO2`.
