@@ -110,7 +110,7 @@ There are 3 types of motes (which should be labeled on the cover of the mote):
 
 * TH (Temperature + Relative Humidity)
 * CO2 (Carbon Dioxide)
-* PIR (Passive infrared -- occupancy) -- POSSIBLY BROKEN
+* PIR (Passive infrared -- occupancy)
 
 To flash a TH mote, use the `UDPEcho_TH_CO2` application, and make sure the Makefile contains these lines:
 
@@ -140,7 +140,7 @@ CFLAGS += -DCO2
 
 ---
 
-To flash a PIR mote, use the `UDPEcho_PIR` application and make/install as per usual. No edits to the Makefile.
+To flash a PIR mote, use the `PIR_sensor` application and make/install as per usual. No edits to the Makefile.
 
 
 
