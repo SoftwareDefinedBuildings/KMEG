@@ -1,5 +1,5 @@
 To facilitate creating a build/flash environment for KETImotes and tiny-os, I have put together
-a provisioned VM for you to use. 
+a provisioned VM for you to use.
 
 If you do not want to use a VM, like if you are already on Linux, then you can just run the `vagrant/setup.sh` script.
 Copy it onto your Ubuntu installation (12.04 or later should work), and run
@@ -86,7 +86,7 @@ sudo chmod 777 /dev/ttyUSB0
 ```
 
 Now, unplug the board from the KETImote and plug it into the programmer. Inside the `UDPEcho_TH_CO2` folder,
-run 
+run
 
 ```
 make tmote reinstall,<node num>
@@ -94,7 +94,7 @@ make tmote reinstall,<node num>
 
 `<node num>` should be unique for this mote and is just an arbitrary integer (2 or greater. 1 is reserved). Write this down and label the
 mote with it so that you know which mote is which ID. The above command flashed the mote, and if all was
-successful, you should see something like 
+successful, you should see something like
 
 ```
 Mass Erase...
@@ -103,6 +103,44 @@ Transmit default password...
 Reset device...
 etc...
 ```
+
+### Types of Motes
+
+There are 3 types of motes (which should be labeled on the cover of the mote):
+
+* TH (Temperature + Relative Humidity)
+* CO2 (Carbon Dioxide)
+* PIR (Passive infrared -- occupancy) -- POSSIBLY BROKEN
+
+To flash a TH mote, use the `UDPEcho_TH_CO2` application, and make sure the Makefile contains these lines:
+
+```
+CFLAGS += -DTH
+CFLAGS += -DRH
+#CFLAGS += -DCO2
+#CFLAGS += -DPIR
+```
+
+and then run `make tmote blip` and `make tmote reinstall,<mote id>` etc.
+
+---
+
+To flash a CO2 mote, use the `UDPEcho_TH_CO2` application, and make sure to edit the Makefile so that it reads:
+
+```
+#CFLAGS += -DTH
+#CFLAGS += -DRH
+CFLAGS += -DCO2
+#CFLAGS += -DPIR
+```
+
+(then run `make tmote blip` etc)
+
+---
+
+To flash a PIR mote, use the `UDPEcho_PIR` application and make/install as per usual. No edits to the Makefile.
+
+
 
 ## Talking to Motes
 
@@ -154,3 +192,7 @@ python Listener.py
 ```
 
 You should see some output from this.
+
+## KETI Mote sMAP source
+
+
