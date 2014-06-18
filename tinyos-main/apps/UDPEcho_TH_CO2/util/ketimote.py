@@ -86,8 +86,8 @@ class Monitor(DatagramProtocol):
             print 'Relative Humidity', map(humidity, readings[::3])
             for r in map(humidity, readings[::3]):
                 self.driver.add('/' + moteid + '/humidity', r)
-            print 'Illumination', map(humidity, readings[1:::3])
-            for r in map(humidity, readings[1::3]):
+            print 'Illumination', readings[1::3]
+            for r in readings[1::3]:
                 self.driver.add('/' + moteid + '/illumination', r)
         elif motetype == 0x65:
             for r in readings:
