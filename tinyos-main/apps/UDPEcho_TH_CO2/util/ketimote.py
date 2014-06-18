@@ -80,12 +80,15 @@ class Monitor(DatagramProtocol):
         moteid = host.split('::')[-1]
         print readings
         if motetype == 0x64:
-            print 'Temperatures', map(temp, readings[1::2])
-            for r in map(temp, readings[1::2]):
+            print 'Temperatures', map(temp, readings[2::3])
+            for r in map(temp, readings[2::3]):
                 self.driver.add('/' + moteid + '/temperature', r)
-            print 'Relative Humidity', map(humidity, readings[::2])
-            for r in map(humidity, readings[::2]):
+            print 'Relative Humidity', map(humidity, readings[::3])
+            for r in map(humidity, readings[::3]):
                 self.driver.add('/' + moteid + '/humidity', r)
+            print 'Illumination', map(humidity, readings[1:::3])
+            for r in map(humidity, readings[1::3]):
+                self.driver.add('/' + moteid + '/illumination', r)
         elif motetype == 0x65:
             for r in readings:
                 self.driver.add('/' + moteid + '/co2', r)
@@ -101,6 +104,7 @@ class Monitor(DatagramProtocol):
 class KETIDriver(SmapDriver):
     CHANNELS = {'temperature': ('C', 'double'),
                 'humidity': ('%RH', 'double'),
+                'illumination': ('lx', 'long'),
                 'pir': ('#', 'long'),
                 'co2': ('ppm', 'long')}
 
@@ -126,8 +130,11 @@ class KETIDriver(SmapDriver):
                         self.CHANNELS['temperature'][0], data_type=self.CHANNELS['temperature'][1])
                 self.add_timeseries('/' + str(moteid) + '/humidity',
                         self.CHANNELS['humidity'][0], data_type=self.CHANNELS['humidity'][1])
+                self.add_timeseries('/' + str(moteid) + '/illumination',
+                        self.CHANNELS['illumination'][0], data_type=self.CHANNELS['illumination'][1])
                 self.set_metadata('/' + str(moteid) + '/temperature', metadata)
                 self.set_metadata('/' + str(moteid) + '/humidity', metadata)
+                self.set_metadata('/' + str(moteid) + '/illumination', metadata)
             elif motetype == 'CO2':
                 self.add_timeseries('/' + str(moteid) + '/co2',
                         self.CHANNELS['co2'][0], data_type=self.CHANNELS['co2'][1])

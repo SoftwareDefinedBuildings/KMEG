@@ -52,6 +52,11 @@ configuration UDPEchoC {
   UDPEchoP.Read -> CO2Sensor;
 #endif
 
+# if Ill
+  components new IlluAdcC() as Illu;
+  UDPEchoP.Read -> Illu;
+#endif
+
   components new TimerMilliC();
   components IPStackC;
 

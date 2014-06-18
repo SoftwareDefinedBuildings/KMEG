@@ -125,8 +125,8 @@ module UDPEchoP {
     if(reading == NREADINGS){
 
       stats.seqno++;
-#if TH || RH
-      stats.type = 0x64;
+#if TH || RH || Ill
+      stats.type = 0x0;//0x64;
 #elif CO2
       stats.type = 0x65;
 #endif
