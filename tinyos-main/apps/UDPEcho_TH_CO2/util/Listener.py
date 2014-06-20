@@ -57,8 +57,10 @@ if __name__ == '__main__':
             print 'type', rpt.get_type()
             print 'interval', rpt.get_interval()
             print 'readings', rpt.get_readings()
-            print 'Temperatures', map(temp, rpt.get_readings()[1::2])
-            print 'Relative Humidity', map(humidity, rpt.get_readings()[::2])
+            readings = rpt.get_readings()
+            print 'Temperatures', map(temp, readings[2::3])
+            print 'Relative Humidity', map(humidity, readings[::3])
+            print 'Illumination', readings[1::3]
 
             print 'addr[0]', addr[0]
 
