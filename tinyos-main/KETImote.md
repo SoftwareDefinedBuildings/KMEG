@@ -1,5 +1,11 @@
+# TinyOS Installation
+
+## Configuring environment
+
 To facilitate creating a build/flash environment for KETImotes and tiny-os, I have put together
-a provisioned VM for you to use.
+a provisioned VM for you to use, though you can also do this natively in Ubuntu.
+
+### Native Ubuntu
 
 If you do not want to use a VM, like if you are already on Linux, then you can
 just run the `install.sh` script.  Copy it onto your Ubuntu installation
@@ -12,6 +18,8 @@ sudo su root
 ```
 
 and the process will take care of itself.
+
+### Vagrant Ubuntu
 
 If you do want to use a VM, install [vagrant](http://www.vagrantup.com/) and a backend for vagrant, like
 [virtualbox](https://www.virtualbox.org/). You want a provider that allows you to enable/forward the USB
@@ -64,6 +72,8 @@ export PATH="$TOSROOT/tools/platforms/msp430/pybsl:$PATH"
 chmod +x "$TOSROOT/tools/platforms/msp430/motelist/motelist"
 chmod +x "$TOSROOT/tools/platforms/msp430/pybsl/tos-bsl"
 ```
+
+## Building Apps
 
 Now, go to the apps folder for the KETI-motes. For the temperature/humidity/illumination/co2 sensors, this is `UDPEcho_TH_CO2`.
 
