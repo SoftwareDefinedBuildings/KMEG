@@ -79,25 +79,28 @@ class Monitor(DatagramProtocol):
         motetype = rpt.get_type()
         moteid = host.split('::')[-1]
         print readings
-        if motetype == 0x64:
-            print 'Temperatures', map(temp, readings[2::3])
-            for r in map(temp, readings[2::3]):
-                self.driver.add('/' + moteid + '/temperature', r)
-            print 'Relative Humidity', map(humidity, readings[::3])
-            for r in map(humidity, readings[::3]):
-                self.driver.add('/' + moteid + '/humidity', r)
-            print 'Illumination', readings[1::3]
-            for r in readings[1::3]:
-                self.driver.add('/' + moteid + '/illumination', r)
-        elif motetype == 0x65:
-            for r in readings:
-                self.driver.add('/' + moteid + '/co2', r)
-            print 'CO2 ppm', readings
-        elif motetype == 0x66:
-            print 'Occupancy', readings
-            self.driver.add('/' + moteid + '/pir', readings)
-        else:
-            print motetype
+        try:
+            if motetype == 0x64:
+                print 'Temperatures', map(temp, readings[2::3])
+                print 'Relative Humidity', map(humidity, readings[::3])
+                print 'Illumination', readings[1::3]
+                for r in map(temp, readings[2::3]):
+                    self.driver.add('/' + moteid + '/temperature', r)
+                for r in map(humidity, readings[::3]):
+                    self.driver.add('/' + moteid + '/humidity', r)
+                for r in readings[1::3]:
+                    self.driver.add('/' + moteid + '/illumination', r)
+            elif motetype == 0x65:
+                for r in readings:
+                    self.driver.add('/' + moteid + '/co2', r)
+                print 'CO2 ppm', readings
+            elif motetype == 0x66:
+                print 'Occupancy', readings
+                self.driver.add('/' + moteid + '/pir', readings)
+            else:
+                print motetype
+        except Exception as e:
+            print e
         print 'From', host
 
 
@@ -155,7 +158,7 @@ if __name__ == '__main__':
     s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
     s.setblocking(False)
     s.bind(('', port))
-    port = reactor.adoptDatagramPort(s.fileno(), socket.AF_INET6, Monitor())
+    port = reactor.adoptDatagramPort(s.fileno(), socket.AF_INET6, Monitor(None))
     s.close()
     reactor.run()
 
