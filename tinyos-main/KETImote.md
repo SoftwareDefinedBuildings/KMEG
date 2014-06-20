@@ -2,13 +2,13 @@ To facilitate creating a build/flash environment for KETImotes and tiny-os, I ha
 a provisioned VM for you to use.
 
 If you do not want to use a VM, like if you are already on Linux, then you can
-just run the `vagrant/setup.sh` script.  Copy it onto your Ubuntu installation
+just run the `install.sh` script.  Copy it onto your Ubuntu installation
 (12.04 or later should work), change the `$HOME` variable on line 3 to where
 you want the base installation to be located, and run
 
 ```
 sudo su root
-. setup.sh
+. install.sh
 ```
 
 and the process will take care of itself.
