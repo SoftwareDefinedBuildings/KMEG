@@ -207,6 +207,17 @@ python Listener.py
 
 You should see some output from this.
 
+OR
+
+if you want some nicer output, you should be able to do
+
+```
+cd $TOSROOT/apps/UDPEcho_TH_CO2/util
+python readketi.py
+```
+
+which will use the type of mote to convert the returned values so you tell if it is reporting correct values
+
 ## KETI Mote sMAP source
 
 
