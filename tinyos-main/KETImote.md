@@ -1,5 +1,10 @@
 # TinyOS Installation
 
+#TODO: pull from tinyos-main trunk
+#TODO: pull kmeg-blip branch into master
+#TODO: clean up directory structure and rename files appropriately (rename RH/CO2 etc -- fix fanlings errors)
+#TODO: use https://github.com/SoftwareDefinedBuildings/KMEG/blob/master/keti_work/Mjolnir/Sensor/100THSensor/THSensorC.nc for TH sensors
+
 ## Configuring environment
 
 To facilitate creating a build/flash environment for KETImotes and tiny-os, I have put together
