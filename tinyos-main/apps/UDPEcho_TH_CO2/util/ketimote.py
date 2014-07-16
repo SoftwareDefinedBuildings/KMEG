@@ -35,6 +35,18 @@ class KETIGram(tinyos.message.Message.Message):
             print len(data)
         print self.get_readings
 
+
+    def checkBounds(self, offset, length):
+        if offset < 0 or length <= 0 or offset + length > (self.data_length * 8):
+            raise Exception("checkBounds: bad offset (%d) or length (%d), for data_length %d" \
+                                   % (offset, length, self.data_length))
+
+        if offset & 7 != 0:
+            raise Exception("Cannot deal with bit fields")
+
+        if length & 7 != 0:
+            raise Exception("Cannot deal with bit fields")
+
     def getUIntElement(self, offset, length, endian):
         self.checkBounds(offset, length)
 
