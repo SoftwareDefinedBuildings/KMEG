@@ -3,6 +3,7 @@ import socket
 from twisted.internet.protocol import DatagramProtocol
 import tinyos.message.Message
 from ConfigParser import RawConfigParser
+import struct
 import time
 from smap.driver import SmapDriver
 
@@ -33,6 +34,28 @@ class KETIGram(tinyos.message.Message.Message):
         else:
             print len(data)
         print self.get_readings
+
+    def getUIntElement(self, offset, length, endian):
+        self.checkBounds(offset, length)
+
+        byteOffset = offset >> 3
+        bitOffset = offset & 7
+
+        if (endian):
+            endian = ">"
+        else:
+            endian = "<"
+
+        temp = self.data[byteOffset:byteOffset + (length >> 3)]
+
+        if length == 8:
+            return struct.unpack("B", temp)[0]
+        elif length == 16:
+            return struct.unpack(endian + "H", temp)[0]
+        elif length == 32:
+            return struct.unpack(endian + "L", temp)[0]
+        else:
+            raise Exception("Bad length")
 
     def numElements_readings(self, dimension):
         array_dims = [ 10,  ]
@@ -121,12 +144,16 @@ class KETIDriver(SmapDriver):
         self.monitor = None
         self.socker = None
 
+        globalmetadata = self.config.items('global')
+        globalmetadata = dict(((k.title(), v) for k,v in globalmetadata))
+        self.set_metadata('/', globalmetadata)
+
         for mote in self.config.sections():
             if mote == 'global':
                 continue
             moteid = str(mote.split(':')[-1])
             motetype = self.config.get(mote, 'type')
-            metadata = dict(self.config.items(mote))
+            metadata = dict(((k.title(), v) for k,v in self.config.items(mote)))
             metadata.update({'moteid': moteid})
             if motetype == 'TH':
                 self.add_timeseries('/' + str(moteid) + '/temperature',
