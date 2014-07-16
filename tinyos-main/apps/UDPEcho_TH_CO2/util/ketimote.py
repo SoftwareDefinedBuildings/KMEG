@@ -100,17 +100,20 @@ class Monitor(DatagramProtocol):
         rpt = KETIGram(data=data, data_length=len(data))
         readings = rpt.get_readings()
         motetype = rpt.get_type()
-        moteid = host.split('::')[-1]
+        moteid = str(int(host.split('::')[-1],16))
         print readings
         try:
             if motetype == 0x64:
                 print 'Temperatures', map(temp, readings[2::3])
                 print 'Relative Humidity', map(humidity, readings[::3])
+                rh = map(humidity, readings[::3])
+                print 'RH avg:', sum(rh) / (float(len(rh)))
                 print 'Illumination', readings[1::3]
                 for r in map(temp, readings[2::3]):
                     self.driver.add('/' + moteid + '/temperature', r)
-                for r in map(humidity, readings[::3]):
-                    self.driver.add('/' + moteid + '/humidity', r)
+                self.driver.add('/' + moteid + '/humidity', (sum(rh) / (float(len(rh)))))
+                #for r in map(humidity, readings[::3]):
+                #    self.driver.add('/' + moteid + '/humidity', r)
                 for r in readings[1::3]:
                     self.driver.add('/' + moteid + '/illumination', r)
             elif motetype == 0x65:
@@ -119,7 +122,7 @@ class Monitor(DatagramProtocol):
                 print 'CO2 ppm', readings
             elif motetype == 0x66:
                 print 'Occupancy', readings
-                self.driver.add('/' + moteid + '/pir', readings)
+                self.driver.add('/' + moteid + '/pir', readings > 0)
             else:
                 print motetype
         except Exception as e:
