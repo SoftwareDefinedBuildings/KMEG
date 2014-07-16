@@ -1,7 +1,6 @@
 from twisted.internet import reactor, protocol
 import socket
 from twisted.internet.protocol import DatagramProtocol
-import tinyos.message.Message
 from ConfigParser import RawConfigParser
 import struct
 import time
@@ -18,17 +17,17 @@ def temp(x):
 def humidity(x):
     return -4.0 + .0405 * x - .0000028 * (x**2)
 
-class KETIGram(tinyos.message.Message.Message):
+class KETIGram(object):
     def __init__(self, data="", addr=None, gid=None, base_offset=0, data_length=43):
+        self.data_length = data_length
+        self.data = data
         if len(data) == 21 or len(data) == 41:
             # this is a PIR sensor
             self.get_readings = self.PIR_get_readings
             self.offsetBits_readings = self.PIR_offsetBits_readings
             self.get_type = lambda : 0x66
-            tinyos.message.Message.Message.__init__(self, data, addr, gid, base_offset, len(data))
         elif len(data) == 43:
             # this is TH / RH / CO2 sensor
-            tinyos.message.Message.Message.__init__(self, data, addr, gid, base_offset, len(data))
             self.get_readings = self.TH_get_readings
             self.offsetBits_readings = self.TH_offsetBits_readings
         else:
